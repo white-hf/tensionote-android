@@ -1,0 +1,10 @@
+<svg width="1200" height="360" viewBox="0 0 1200 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="360" rx="36" fill="#F7FBFB"/>
+  <g transform="translate(56 68)">
+    <path d="M98 0C65 39 40 72 40 110C40 151 66 184 98 184C130 184 156 151 156 110C156 72 131 39 98 0Z" fill="#E65555"/>
+    <path d="M22 114H62L76 90L94 142L111 105H176" stroke="#177E89" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <text x="290" y="145" font-family="Georgia, 'Times New Roman', serif" font-size="96" font-weight="700" fill="#12343B">Tensionote</text>
+  <text x="292" y="212" font-family="Segoe UI, Arial, sans-serif" font-size="30" fill="#4F6D73">Blood pressure records, without the clutter.</text>
+  <text x="292" y="262" font-family="Segoe UI, Arial, sans-serif" font-size="24" fill="#6B878C">Concept B: softer brand feel, more editorial, better for consumer-facing marketing.</text>
+</svg>

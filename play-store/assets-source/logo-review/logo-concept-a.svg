@@ -1,0 +1,11 @@
+<svg width="1200" height="360" viewBox="0 0 1200 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="360" rx="36" fill="#F5FAFA"/>
+  <g transform="translate(44 44)">
+    <rect width="272" height="272" rx="72" fill="#EAF5F4"/>
+    <path d="M136 42C101 84 73 120 73 161C73 205 101 241 136 241C171 241 199 205 199 161C199 120 171 84 136 42Z" fill="#E65555"/>
+    <path d="M58 165H100L114 139L134 192L152 153H214" stroke="#FFFFFF" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <text x="360" y="150" font-family="Segoe UI, Arial, sans-serif" font-size="98" font-weight="700" fill="#12343B">Tensionote</text>
+  <text x="364" y="222" font-family="Segoe UI, Arial, sans-serif" font-size="34" fill="#4F6D73">Track blood pressure clearly.</text>
+  <text x="364" y="272" font-family="Segoe UI, Arial, sans-serif" font-size="24" fill="#6B878C">Concept A: balanced app-first mark with strong medical-tool readability.</text>
+</svg>

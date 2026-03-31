@@ -1,0 +1,10 @@
+<svg width="1400" height="420" viewBox="0 0 1400 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1400" height="420" rx="40" fill="#0E252A"/>
+  <g transform="translate(56 56)">
+    <rect width="308" height="308" rx="96" fill="#12343B"/>
+    <path d="M154 54C114 102 84 140 84 184C84 232 114 271 154 271C194 271 224 232 224 184C224 140 194 102 154 54Z" fill="#E65555"/>
+    <path d="M66 188H112L128 161L151 216L173 175H242" stroke="#FFFFFF" stroke-width="20" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <text x="408" y="166" font-family="Segoe UI, Arial, sans-serif" font-size="108" font-weight="800" fill="#F5FAFA">Tensionote</text>
+  <text x="412" y="244" font-family="Segoe UI, Arial, sans-serif" font-size="38" fill="#CBE0DE">Simple recording. Direct pressure insight.</text>
+</svg>

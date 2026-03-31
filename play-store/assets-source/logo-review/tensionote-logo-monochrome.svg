@@ -1,0 +1,10 @@
+<svg width="1200" height="360" viewBox="0 0 1200 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="360" rx="36" fill="#FFFFFF"/>
+  <g transform="translate(44 44)">
+    <rect width="272" height="272" rx="84" fill="#111111"/>
+    <path d="M136 48C101 90 75 123 75 162C75 205 102 240 136 240C170 240 197 205 197 162C197 123 171 90 136 48Z" fill="#FFFFFF"/>
+    <path d="M58 165H99L112 142L132 190L151 154H214" stroke="#111111" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <text x="360" y="156" font-family="Segoe UI, Arial, sans-serif" font-size="96" font-weight="800" fill="#111111">Tensionote</text>
+  <text x="362" y="224" font-family="Segoe UI, Arial, sans-serif" font-size="28" fill="#444444">Monochrome brand lockup</text>
+</svg>
