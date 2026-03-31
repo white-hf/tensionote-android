@@ -43,6 +43,9 @@
     <string name="reminder_add">Add</string>
     <string name="reminder_empty_title">No reminders yet</string>
     <string name="reminder_empty_body">Add a reminder to get notified when it is time to measure your blood pressure.</string>
+    <string name="reminder_notification_permission_title">Notifications are off</string>
+    <string name="reminder_notification_permission_body">Allow notifications in system settings to receive reminder alerts.</string>
+    <string name="reminder_notification_permission_action">Open Settings</string>
     <string name="reminder_notification_title">Blood Pressure Reminder</string>
     <string name="reminder_notification_body">It is time to record your blood pressure.</string>
 
@@ -67,6 +70,8 @@
     <string name="report_share_chooser_title">Share report</string>
     <string name="report_share_email">Share by Email</string>
     <string name="report_export_result_prefix">Generated file:</string>
+    <string name="report_export_failed">Unable to generate the PDF report.</string>
+    <string name="report_share_failed">No app available to share the report.</string>
     <string name="report_email_subject_format">Tensionote Blood Pressure Report (%1$d Days)</string>
     <string name="report_email_body_format">Attached is the exported blood pressure report from Tensionote.\n\nRange: %1$d days\nRecords: %2$d\nAverage: %3$d / %4$d\nAverage Heart Rate: %5$d</string>
 
@@ -79,6 +84,8 @@
     <string name="settings_privacy_policy">Privacy Policy</string>
     <string name="settings_terms">Terms of Service</string>
     <string name="settings_disclaimer">Disclaimer</string>
+    <string name="settings_notifications_title">Notifications</string>
+    <string name="settings_notifications_body">Allow notifications so reminders can alert you on time.</string>
     <string name="document_privacy_content">Tensionote stores your blood pressure records, reminders, and exported reports on this device. The app does not upload your health data to a server in this version. When you choose email sharing or file sharing, the selected content is handed to the target app you choose.</string>
     <string name="document_terms_content">Tensionote is provided as a personal blood pressure recording and management tool. You are responsible for reviewing exported content before sharing it. Do not rely on this app as a substitute for professional medical advice, diagnosis, or treatment.</string>
     <string name="document_disclaimer_content">Tensionote helps you record and review blood pressure data. It does not diagnose disease, prescribe treatment, or replace a licensed clinician. If readings remain high or symptoms worsen, seek medical advice.</string>

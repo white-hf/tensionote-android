@@ -13,7 +13,7 @@ object ReportShareHelper {
         file: File,
         subject: String,
         body: String
-    ) {
+    ): Boolean {
         val uri = FileProvider.getUriForFile(
             context,
             "${context.packageName}.fileprovider",
@@ -39,7 +39,7 @@ object ReportShareHelper {
             }
             try {
                 context.startActivity(sendIntent)
-                return
+                return true
             } catch (_: ActivityNotFoundException) {
             }
         }
@@ -59,7 +59,10 @@ object ReportShareHelper {
                     context.getString(R.string.report_share_chooser_title)
                 )
             )
+            return true
         } catch (_: ActivityNotFoundException) {
         }
+
+        return false
     }
 }

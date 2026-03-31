@@ -15,13 +15,16 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import android.widget.Toast
 import com.tensionote.R
 import com.tensionote.core.export.ReportShareHelper
 import com.tensionote.core.model.RecordFormatters
 import com.tensionote.core.model.labelResId
 import java.io.File
 import java.time.LocalDate
+import java.time.ZoneId
 import java.time.format.FormatStyle
 
 @Composable
@@ -96,14 +99,24 @@ fun ReportScreen(viewModel: ReportViewModel) {
                             title = stringResource(R.string.report_custom_from),
                             value = dateFormatter.format(state.startDate),
                             onClick = {
-                                showDatePicker(context, state.startDate) { viewModel.updateStartDate(it) }
+                                showDatePicker(
+                                    context = context,
+                                    initialDate = state.startDate,
+                                    minDate = null,
+                                    maxDate = state.endDate
+                                ) { viewModel.updateStartDate(it) }
                             }
                         )
                         dateRow(
                             title = stringResource(R.string.report_custom_to),
                             value = dateFormatter.format(state.endDate),
                             onClick = {
-                                showDatePicker(context, state.endDate) { viewModel.updateEndDate(it) }
+                                showDatePicker(
+                                    context = context,
+                                    initialDate = state.endDate,
+                                    minDate = state.startDate,
+                                    maxDate = LocalDate.now()
+                                ) { viewModel.updateEndDate(it) }
                             }
                         )
                     }
@@ -143,17 +156,36 @@ fun ReportScreen(viewModel: ReportViewModel) {
         items(state.records.take(5)) { record ->
             Card {
                 Column(modifier = Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) {
-                    Text(RecordFormatters.formatMeasuredAt(record), style = MaterialTheme.typography.bodySmall)
-                    Text("${record.systolic}/${record.diastolic}")
+                    Text(
+                        RecordFormatters.formatMeasuredAt(record),
+                        style = MaterialTheme.typography.bodySmall,
+                        maxLines = 2,
+                        overflow = TextOverflow.Ellipsis
+                    )
+                    Text("${record.systolic}/${record.diastolic}", maxLines = 1)
                     summaryRow(stringResource(R.string.metric_heart_rate), record.heartRate.toString())
-                    Text(stringResource(record.status.labelResId()), style = MaterialTheme.typography.bodySmall)
+                    Text(
+                        stringResource(record.status.labelResId()),
+                        style = MaterialTheme.typography.bodySmall,
+                        maxLines = 2,
+                        overflow = TextOverflow.Ellipsis
+                    )
                 }
             }
         }
 
         item {
             Button(
-                onClick = viewModel::exportPdf,
+                onClick = {
+                    val exported = viewModel.exportPdf()
+                    if (exported == null) {
+                        Toast.makeText(
+                            context,
+                            context.getString(R.string.report_export_failed),
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                },
                 enabled = state.records.isNotEmpty(),
                 modifier = Modifier.fillMaxWidth()
             ) {
@@ -166,12 +198,19 @@ fun ReportScreen(viewModel: ReportViewModel) {
                 onClick = {
                     val path = state.exportedFilePath ?: viewModel.exportPdf()
                     if (path != null) {
-                        ReportShareHelper.sharePdf(
+                        val shared = ReportShareHelper.sharePdf(
                             context = context,
                             file = File(path),
                             subject = viewModel.emailSubject(),
                             body = viewModel.emailBody()
                         )
+                        if (!shared) {
+                            Toast.makeText(
+                                context,
+                                context.getString(R.string.report_share_failed),
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
                     }
                 },
                 enabled = state.records.isNotEmpty(),
@@ -201,10 +240,17 @@ fun ReportScreen(viewModel: ReportViewModel) {
 
 @Composable
 private fun summaryRow(title: String, value: String) {
-    Row(modifier = Modifier.fillMaxWidth()) {
-        Text(title)
-        androidx.compose.foundation.layout.Spacer(modifier = Modifier.weight(1f))
-        Text(value)
+    Row(
+        modifier = Modifier.fillMaxWidth(),
+        horizontalArrangement = Arrangement.spacedBy(12.dp)
+    ) {
+        Text(
+            title,
+            modifier = Modifier.weight(1f),
+            maxLines = 2,
+            overflow = TextOverflow.Ellipsis
+        )
+        Text(value, maxLines = 1, overflow = TextOverflow.Ellipsis)
     }
 }
 
@@ -216,11 +262,16 @@ private fun dateRow(
 ) {
     Row(
         modifier = Modifier.fillMaxWidth(),
-        horizontalArrangement = Arrangement.SpaceBetween
+        horizontalArrangement = Arrangement.spacedBy(12.dp)
     ) {
-        Text(title)
+        Text(
+            title,
+            modifier = Modifier.weight(1f),
+            maxLines = 2,
+            overflow = TextOverflow.Ellipsis
+        )
         OutlinedButton(onClick = onClick) {
-            Text(value)
+            Text(value, maxLines = 1, overflow = TextOverflow.Ellipsis)
         }
     }
 }
@@ -234,9 +285,11 @@ private fun rememberDateFormatter(): java.time.format.DateTimeFormatter {
 private fun showDatePicker(
     context: android.content.Context,
     initialDate: LocalDate,
+    minDate: LocalDate? = null,
+    maxDate: LocalDate? = null,
     onDateSelected: (LocalDate) -> Unit
 ) {
-    DatePickerDialog(
+    val dialog = DatePickerDialog(
         context,
         { _, year, month, dayOfMonth ->
             onDateSelected(LocalDate.of(year, month + 1, dayOfMonth))
@@ -244,5 +297,12 @@ private fun showDatePicker(
         initialDate.year,
         initialDate.monthValue - 1,
         initialDate.dayOfMonth
-    ).show()
+    )
+    minDate?.let { dialog.datePicker.minDate = it.toStartOfDayMillis() }
+    maxDate?.let { dialog.datePicker.maxDate = it.toStartOfDayMillis() }
+    dialog.show()
+}
+
+private fun LocalDate.toStartOfDayMillis(): Long {
+    return atStartOfDay(ZoneId.systemDefault()).toInstant().toEpochMilli()
 }

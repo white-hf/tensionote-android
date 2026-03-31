@@ -43,6 +43,9 @@
     <string name="reminder_add">新增</string>
     <string name="reminder_empty_title">还没有提醒</string>
     <string name="reminder_empty_body">添加提醒后，你会在该测量血压时收到通知。</string>
+    <string name="reminder_notification_permission_title">通知已关闭</string>
+    <string name="reminder_notification_permission_body">请在系统设置中允许通知，以接收提醒。</string>
+    <string name="reminder_notification_permission_action">打开设置</string>
     <string name="reminder_notification_title">血压测量提醒</string>
     <string name="reminder_notification_body">该记录你的血压了。</string>
 
@@ -67,6 +70,8 @@
     <string name="report_share_chooser_title">分享报告</string>
     <string name="report_share_email">邮件分享</string>
     <string name="report_export_result_prefix">已生成文件：</string>
+    <string name="report_export_failed">无法生成 PDF 报告。</string>
+    <string name="report_share_failed">没有可用的应用来分享报告。</string>
     <string name="report_email_subject_format">Tensionote 血压报告（%1$d 天）</string>
     <string name="report_email_body_format">附件是从 Tensionote 导出的血压报告。\n\n范围：%1$d 天\n记录数：%2$d\n平均值：%3$d / %4$d\n平均心率：%5$d</string>
 
@@ -79,6 +84,8 @@
     <string name="settings_privacy_policy">隐私政策</string>
     <string name="settings_terms">用户协议</string>
     <string name="settings_disclaimer">免责声明</string>
+    <string name="settings_notifications_title">通知</string>
+    <string name="settings_notifications_body">允许通知后，提醒才会按时提醒你测量血压。</string>
     <string name="document_privacy_content">Tensionote 会将血压记录、提醒和导出的报告保存在当前设备中。本版本不会将你的健康数据上传到服务器。当你主动使用邮件分享或文件分享时，所选内容会交给你选择的目标应用处理。</string>
     <string name="document_terms_content">Tensionote 是一款用于个人血压记录与管理的工具。分享前，请你自行确认导出内容是否准确完整。该应用不能替代专业医生的建议、诊断或治疗。</string>
     <string name="document_disclaimer_content">Tensionote 用于帮助你记录和查看血压数据，不提供疾病诊断、治疗建议，也不能替代持证医生。如果血压持续偏高或身体不适加重，请及时咨询医生。</string>

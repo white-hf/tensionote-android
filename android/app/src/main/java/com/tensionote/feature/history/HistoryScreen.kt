@@ -15,6 +15,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.tensionote.R
 import com.tensionote.core.model.BloodPressureRecord
@@ -66,9 +67,19 @@ fun HistoryScreen(
                             modifier = Modifier.fillMaxWidth(),
                             verticalArrangement = Arrangement.spacedBy(6.dp)
                         ) {
-                            Text("${record.systolic}/${record.diastolic}", style = MaterialTheme.typography.titleLarge)
-                            Text(RecordFormatters.formatMeasuredAt(record), style = MaterialTheme.typography.bodySmall)
-                            Text(stringResource(record.status.labelResId()), style = MaterialTheme.typography.bodyMedium)
+                            Text("${record.systolic}/${record.diastolic}", style = MaterialTheme.typography.titleLarge, maxLines = 1)
+                            Text(
+                                RecordFormatters.formatMeasuredAt(record),
+                                style = MaterialTheme.typography.bodySmall,
+                                maxLines = 2,
+                                overflow = TextOverflow.Ellipsis
+                            )
+                            Text(
+                                stringResource(record.status.labelResId()),
+                                style = MaterialTheme.typography.bodyMedium,
+                                maxLines = 2,
+                                overflow = TextOverflow.Ellipsis
+                            )
                         }
                     }
                 }

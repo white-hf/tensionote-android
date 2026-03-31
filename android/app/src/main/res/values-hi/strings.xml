@@ -43,6 +43,9 @@
     <string name="reminder_add">जोड़ें</string>
     <string name="reminder_empty_title">अभी कोई रिमाइंडर नहीं है</string>
     <string name="reminder_empty_body">रिमाइंडर जोड़ें ताकि रक्तचाप मापने के समय आपको सूचना मिले।</string>
+    <string name="reminder_notification_permission_title">सूचनाएँ बंद हैं</string>
+    <string name="reminder_notification_permission_body">रिमाइंडर अलर्ट पाने के लिए सिस्टम सेटिंग्स में सूचनाएँ अनुमति दें।</string>
+    <string name="reminder_notification_permission_action">सेटिंग्स खोलें</string>
     <string name="reminder_notification_title">रक्तचाप रिमाइंडर</string>
     <string name="reminder_notification_body">अब अपना रक्तचाप दर्ज करने का समय है।</string>
 
@@ -67,6 +70,8 @@
     <string name="report_share_chooser_title">रिपोर्ट साझा करें</string>
     <string name="report_share_email">ईमेल से साझा करें</string>
     <string name="report_export_result_prefix">फ़ाइल बनाई गई:</string>
+    <string name="report_export_failed">PDF रिपोर्ट बनाना संभव नहीं है।</string>
+    <string name="report_share_failed">रिपोर्ट साझा करने के लिए कोई ऐप उपलब्ध नहीं है।</string>
     <string name="report_email_subject_format">Tensionote रक्तचाप रिपोर्ट (%1$d दिन)</string>
     <string name="report_email_body_format">संलग्नक में Tensionote से निर्यात की गई रक्तचाप रिपोर्ट है।\n\nअवधि: %1$d दिन\nरिकॉर्ड: %2$d\nऔसत: %3$d / %4$d\nऔसत हृदय गति: %5$d</string>
 
@@ -79,6 +84,8 @@
     <string name="settings_privacy_policy">गोपनीयता नीति</string>
     <string name="settings_terms">सेवा की शर्तें</string>
     <string name="settings_disclaimer">अस्वीकरण</string>
+    <string name="settings_notifications_title">सूचनाएँ</string>
+    <string name="settings_notifications_body">सूचनाएँ अनुमति देने पर ही रिमाइंडर समय पर अलर्ट कर पाएँगे।</string>
     <string name="document_privacy_content">Tensionote इस संस्करण में आपके रक्तचाप रिकॉर्ड, रिमाइंडर और निर्यात की गई रिपोर्ट इसी डिवाइस पर संग्रहीत करता है। ऐप आपके स्वास्थ्य डेटा को सर्वर पर अपलोड नहीं करता। जब आप ईमेल या फ़ाइल साझा करना चुनते हैं, तो चुनी गई सामग्री आपके चुने हुए ऐप को सौंपी जाती है।</string>
     <string name="document_terms_content">Tensionote व्यक्तिगत रक्तचाप रिकॉर्ड और प्रबंधन के लिए एक उपकरण है। साझा करने से पहले निर्यात की गई सामग्री की समीक्षा करना आपकी जिम्मेदारी है। यह ऐप पेशेवर चिकित्सीय सलाह, निदान या उपचार का विकल्प नहीं है।</string>
     <string name="document_disclaimer_content">Tensionote आपको रक्तचाप डेटा दर्ज करने और देखने में मदद करता है। यह बीमारी का निदान नहीं करता, उपचार निर्धारित नहीं करता और न ही लाइसेंस प्राप्त चिकित्सक का स्थान लेता है। यदि रीडिंग लगातार ऊँची रहे या लक्षण बढ़ें, तो चिकित्सकीय सलाह लें।</string>
