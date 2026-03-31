@@ -67,7 +67,12 @@ fun HistoryScreen(
                             modifier = Modifier.fillMaxWidth(),
                             verticalArrangement = Arrangement.spacedBy(6.dp)
                         ) {
-                            Text("${record.systolic}/${record.diastolic}", style = MaterialTheme.typography.titleLarge, maxLines = 1)
+                            Text(
+                                "${record.systolic}/${record.diastolic}",
+                                style = MaterialTheme.typography.titleLarge,
+                                maxLines = 1,
+                                overflow = TextOverflow.Ellipsis
+                            )
                             Text(
                                 RecordFormatters.formatMeasuredAt(record),
                                 style = MaterialTheme.typography.bodySmall,
