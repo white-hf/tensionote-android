@@ -76,6 +76,15 @@ This draft still needs final human review before submission.
 - Is data encrypted in transit?
   - Not applicable for current V1 because there is no server transmission by the app.
 
+## Supporting Docs
+
+- Data safety draft:
+  - `play-store/data-safety-draft.md`
+- Support contact placeholders:
+  - `play-store/support-contact-template.md`
+- Final upload steps:
+  - `play-store/final-upload-steps.md`
+
 ## Public URLs Still Needed
 
 - Privacy policy public URL

@@ -43,4 +43,7 @@ Tensionote is a personal health-management tool and does not provide medical dia
 
 ## Contact
 
-If you publish Tensionote publicly, replace this section with your official support contact email or website.
+- Support email: `support@YOUR_DOMAIN`
+- Support website: `https://YOUR_DOMAIN/support`
+
+Replace these placeholders with your published support contact before going live.
