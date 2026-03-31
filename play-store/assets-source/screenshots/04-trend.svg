@@ -1,0 +1,18 @@
+<svg width="1080" height="1920" viewBox="0 0 1080 1920" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1080" height="1920" fill="#F5FAFA"/>
+  <text x="96" y="156" font-family="Segoe UI, Arial, sans-serif" font-size="54" font-weight="700" fill="#12343B">See The Last 2 Weeks At A Glance</text>
+  <text x="96" y="224" font-family="Segoe UI, Arial, sans-serif" font-size="30" fill="#4F6D73">Highlight high systolic and diastolic readings without making users guess.</text>
+  <rect x="78" y="320" width="924" height="950" rx="44" fill="white"/>
+  <text x="126" y="404" font-family="Segoe UI, Arial, sans-serif" font-size="42" font-weight="700" fill="#12343B">Trend</text>
+  <line x1="130" y1="548" x2="948" y2="548" stroke="#F1C8C8" stroke-width="4"/>
+  <line x1="130" y1="668" x2="948" y2="668" stroke="#F4DFAE" stroke-width="4"/>
+  <line x1="130" y1="988" x2="948" y2="988" stroke="#D6E8E6" stroke-width="4"/>
+  <path d="M130 760C214 732 292 618 380 650C486 688 562 538 644 584C736 634 828 470 948 520" stroke="#E65555" stroke-width="10" stroke-linecap="round"/>
+  <path d="M130 886C214 860 292 790 380 806C482 826 566 690 644 736C736 790 828 664 948 700" stroke="#177E89" stroke-width="10" stroke-linecap="round"/>
+  <circle cx="644" cy="584" r="14" fill="#E65555"/>
+  <circle cx="948" cy="520" r="14" fill="#E65555"/>
+  <circle cx="644" cy="736" r="14" fill="#177E89"/>
+  <text x="126" y="1120" font-family="Segoe UI, Arial, sans-serif" font-size="24" fill="#5B777C">Red line: systolic. Blue line: diastolic.</text>
+  <rect x="126" y="1160" width="828" height="64" rx="24" fill="#F3E6E6"/>
+  <text x="154" y="1202" font-family="Segoe UI, Arial, sans-serif" font-size="24" fill="#A03B3B">Systolic was high 3 times in the selected trend.</text>
+</svg>

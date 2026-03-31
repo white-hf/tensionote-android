@@ -1,0 +1,26 @@
+<svg width="1080" height="1920" viewBox="0 0 1080 1920" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1080" height="1920" fill="#F5FAFA"/>
+  <text x="96" y="156" font-family="Segoe UI, Arial, sans-serif" font-size="54" font-weight="700" fill="#12343B">Quick Entry in Seconds</text>
+  <text x="96" y="224" font-family="Segoe UI, Arial, sans-serif" font-size="30" fill="#4F6D73">Record systolic, diastolic, and heart rate right from home.</text>
+  <rect x="78" y="320" width="924" height="700" rx="44" fill="white"/>
+  <text x="126" y="404" font-family="Segoe UI, Arial, sans-serif" font-size="42" font-weight="700" fill="#12343B">Quick Entry</text>
+  <rect x="126" y="470" width="384" height="190" rx="28" fill="#F4F7F7"/>
+  <rect x="570" y="470" width="384" height="190" rx="28" fill="#F4F7F7"/>
+  <rect x="126" y="708" width="828" height="190" rx="28" fill="#F4F7F7"/>
+  <text x="154" y="526" font-family="Segoe UI, Arial, sans-serif" font-size="26" fill="#5B777C">Systolic</text>
+  <text x="598" y="526" font-family="Segoe UI, Arial, sans-serif" font-size="26" fill="#5B777C">Diastolic</text>
+  <text x="154" y="764" font-family="Segoe UI, Arial, sans-serif" font-size="26" fill="#5B777C">Heart Rate</text>
+  <text x="154" y="616" font-family="Segoe UI, Arial, sans-serif" font-size="78" font-weight="700" fill="#12343B">128</text>
+  <text x="598" y="616" font-family="Segoe UI, Arial, sans-serif" font-size="78" font-weight="700" fill="#12343B">82</text>
+  <text x="154" y="854" font-family="Segoe UI, Arial, sans-serif" font-size="78" font-weight="700" fill="#12343B">76</text>
+  <rect x="126" y="936" width="828" height="48" rx="24" fill="#F3E6E6"/>
+  <text x="154" y="968" font-family="Segoe UI, Arial, sans-serif" font-size="24" fill="#A03B3B">Systolic pressure is high.</text>
+  <rect x="126" y="1048" width="828" height="112" rx="28" fill="#177E89"/>
+  <text x="540" y="1118" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="34" font-weight="700" fill="white">Save Now</text>
+  <rect x="78" y="1128" width="924" height="620" rx="44" fill="white"/>
+  <text x="126" y="1212" font-family="Segoe UI, Arial, sans-serif" font-size="40" font-weight="700" fill="#12343B">Last 2 Weeks Trend</text>
+  <path d="M130 1590H948" stroke="#D7E7E5" stroke-width="4"/>
+  <path d="M130 1496H948" stroke="#F2D3D3" stroke-width="4"/>
+  <path d="M130 1536C210 1490 298 1460 380 1484C480 1512 556 1390 636 1426C740 1472 828 1358 948 1400" stroke="#E65555" stroke-width="10" stroke-linecap="round"/>
+  <path d="M130 1614C210 1586 298 1568 380 1580C474 1594 560 1518 636 1548C742 1588 830 1490 948 1516" stroke="#177E89" stroke-width="10" stroke-linecap="round"/>
+</svg>

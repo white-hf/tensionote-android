@@ -1,0 +1,32 @@
+<svg width="1080" height="1920" viewBox="0 0 1080 1920" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1080" height="1920" fill="#F5FAFA"/>
+  <text x="96" y="156" font-family="Segoe UI, Arial, sans-serif" font-size="54" font-weight="700" fill="#12343B">Export Clean Reports</text>
+  <text x="96" y="224" font-family="Segoe UI, Arial, sans-serif" font-size="30" fill="#4F6D73">Choose 7, 14, 30 days or a custom range, then share by email.</text>
+  <rect x="78" y="320" width="924" height="1420" rx="44" fill="white"/>
+  <text x="126" y="404" font-family="Segoe UI, Arial, sans-serif" font-size="42" font-weight="700" fill="#12343B">Report</text>
+  <rect x="126" y="468" width="180" height="72" rx="26" fill="#177E89"/>
+  <rect x="326" y="468" width="180" height="72" rx="26" fill="#F4F7F7"/>
+  <rect x="526" y="468" width="180" height="72" rx="26" fill="#F4F7F7"/>
+  <rect x="726" y="468" width="228" height="72" rx="26" fill="#F4F7F7"/>
+  <text x="216" y="514" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="26" font-weight="700" fill="white">30 Days</text>
+  <text x="416" y="514" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="26" font-weight="700" fill="#12343B">14 Days</text>
+  <text x="616" y="514" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="26" font-weight="700" fill="#12343B">7 Days</text>
+  <text x="840" y="514" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="26" font-weight="700" fill="#12343B">Custom</text>
+  <g transform="translate(126 604)">
+    <rect width="828" height="420" rx="32" fill="#F4F7F7"/>
+    <text x="28" y="64" font-family="Segoe UI, Arial, sans-serif" font-size="34" font-weight="700" fill="#12343B">Summary</text>
+    <text x="28" y="138" font-family="Segoe UI, Arial, sans-serif" font-size="26" fill="#5B777C">Record Count</text>
+    <text x="628" y="138" font-family="Segoe UI, Arial, sans-serif" font-size="26" fill="#12343B">42</text>
+    <text x="28" y="214" font-family="Segoe UI, Arial, sans-serif" font-size="26" fill="#5B777C">Average Systolic</text>
+    <text x="628" y="214" font-family="Segoe UI, Arial, sans-serif" font-size="26" fill="#12343B">126</text>
+    <text x="28" y="290" font-family="Segoe UI, Arial, sans-serif" font-size="26" fill="#5B777C">Average Diastolic</text>
+    <text x="628" y="290" font-family="Segoe UI, Arial, sans-serif" font-size="26" fill="#12343B">81</text>
+    <text x="28" y="366" font-family="Segoe UI, Arial, sans-serif" font-size="26" fill="#5B777C">Average Heart Rate</text>
+    <text x="628" y="366" font-family="Segoe UI, Arial, sans-serif" font-size="26" fill="#12343B">75</text>
+  </g>
+  <rect x="126" y="1080" width="828" height="104" rx="28" fill="#177E89"/>
+  <text x="540" y="1146" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="34" font-weight="700" fill="white">Export PDF</text>
+  <rect x="126" y="1212" width="828" height="104" rx="28" fill="#FFFFFF"/>
+  <rect x="126.5" y="1212.5" width="827" height="103" rx="27.5" stroke="#C6DDDA"/>
+  <text x="540" y="1278" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="34" font-weight="700" fill="#12343B">Share by Email</text>
+</svg>

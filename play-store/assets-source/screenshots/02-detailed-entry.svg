@@ -1,0 +1,26 @@
+<svg width="1080" height="1920" viewBox="0 0 1080 1920" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1080" height="1920" fill="#F5FAFA"/>
+  <text x="96" y="156" font-family="Segoe UI, Arial, sans-serif" font-size="54" font-weight="700" fill="#12343B">Detailed Entry When You Need It</text>
+  <text x="96" y="224" font-family="Segoe UI, Arial, sans-serif" font-size="30" fill="#4F6D73">Add measured time, tags, and notes without cluttering the home screen.</text>
+  <rect x="78" y="320" width="924" height="1450" rx="44" fill="white"/>
+  <text x="126" y="404" font-family="Segoe UI, Arial, sans-serif" font-size="42" font-weight="700" fill="#12343B">Detailed Entry</text>
+  <g fill="#F4F7F7">
+    <rect x="126" y="468" width="828" height="164" rx="28"/>
+    <rect x="126" y="676" width="828" height="164" rx="28"/>
+    <rect x="126" y="884" width="828" height="164" rx="28"/>
+    <rect x="126" y="1092" width="828" height="164" rx="28"/>
+    <rect x="126" y="1424" width="828" height="220" rx="28"/>
+  </g>
+  <text x="154" y="520" font-family="Segoe UI, Arial, sans-serif" font-size="26" fill="#5B777C">Measured At</text>
+  <text x="154" y="596" font-family="Segoe UI, Arial, sans-serif" font-size="44" font-weight="600" fill="#12343B">Mar 31, 8:10 AM</text>
+  <text x="154" y="728" font-family="Segoe UI, Arial, sans-serif" font-size="26" fill="#5B777C">Status</text>
+  <text x="154" y="804" font-family="Segoe UI, Arial, sans-serif" font-size="44" font-weight="600" fill="#A03B3B">Systolic pressure is high.</text>
+  <text x="154" y="936" font-family="Segoe UI, Arial, sans-serif" font-size="26" fill="#5B777C">Tags</text>
+  <rect x="154" y="964" width="178" height="64" rx="24" fill="#EAF5F4"/>
+  <rect x="350" y="964" width="174" height="64" rx="24" fill="#EAF5F4"/>
+  <text x="243" y="1006" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="600" fill="#177E89">Morning</text>
+  <text x="437" y="1006" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="600" fill="#177E89">After Meal</text>
+  <text x="154" y="1144" font-family="Segoe UI, Arial, sans-serif" font-size="26" fill="#5B777C">Note</text>
+  <text x="154" y="1220" font-family="Segoe UI, Arial, sans-serif" font-size="38" font-weight="500" fill="#12343B">Felt slightly dizzy before measurement.</text>
+  <text x="154" y="1476" font-family="Segoe UI, Arial, sans-serif" font-size="26" fill="#5B777C">Doctor-ready details without complexity.</text>
+</svg>

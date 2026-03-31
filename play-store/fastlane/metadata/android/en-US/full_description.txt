@@ -1,0 +1,15 @@
+Tensionote is a focused blood pressure tracker built for daily use.
+
+Record your systolic pressure, diastolic pressure, and heart rate quickly, then review a clear 2-week trend without digging through complex menus.
+
+Key features:
+- Quick entry from the home screen
+- Detailed entry with optional tags and notes
+- 2-week trend chart with direct high-pressure labels
+- Full history with edit and delete
+- Daily reminders
+- PDF report export
+- Email and file sharing for doctor visits
+- English, Simplified Chinese, and Hindi
+
+Tensionote is designed as a personal tracking and management tool. It does not diagnose disease or replace professional medical advice.

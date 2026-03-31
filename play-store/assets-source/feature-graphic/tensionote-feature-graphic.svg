@@ -1,0 +1,21 @@
+<svg width="1024" height="500" viewBox="0 0 1024 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1024" height="500" rx="32" fill="#F5FAFA"/>
+  <circle cx="850" cy="96" r="180" fill="#EAF5F4"/>
+  <circle cx="940" cy="430" r="220" fill="#D8ECE9"/>
+  <text x="88" y="176" font-family="Segoe UI, Arial, sans-serif" font-size="56" font-weight="700" fill="#12343B">Tensionote</text>
+  <text x="88" y="236" font-family="Segoe UI, Arial, sans-serif" font-size="26" fill="#46646A">Fast blood pressure logging with a clear 2-week trend.</text>
+  <g transform="translate(88 290)">
+    <rect width="164" height="68" rx="18" fill="#177E89"/>
+    <text x="82" y="43" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="600" fill="white">Quick Entry</text>
+  </g>
+  <g transform="translate(290 290)">
+    <rect width="170" height="68" rx="18" fill="#FFFFFF"/>
+    <rect x="0.5" y="0.5" width="169" height="67" rx="17.5" stroke="#C6DDDA"/>
+    <text x="85" y="43" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="600" fill="#12343B">Trend Insight</text>
+  </g>
+  <g transform="translate(718 112)">
+    <rect width="180" height="180" rx="44" fill="#EAF5F4"/>
+    <path d="M90 30C69 54 52 72 52 96C52 123 69 145 90 145C111 145 128 123 128 96C128 72 111 54 90 30Z" fill="#E65555"/>
+    <path d="M44 102H71L80 85L93 118L104 94H136" stroke="white" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>
