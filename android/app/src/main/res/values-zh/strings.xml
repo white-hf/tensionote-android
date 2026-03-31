@@ -37,6 +37,12 @@
     <string name="trend_empty_body">至少添加 1 条记录后，才能查看最近 2 周趋势。</string>
     <string name="trend_summary_normal">最近记录都处于常见正常范围。</string>
     <string name="trend_summary_counts">当前趋势中，收缩压偏高 %1$d 次，舒张压偏高 %2$d 次。</string>
+    <string name="trend_chart_axis_pressure">压力（mmHg）</string>
+    <string name="trend_chart_axis_date">日期</string>
+    <string name="trend_chart_legend_systolic">收缩压曲线</string>
+    <string name="trend_chart_legend_diastolic">舒张压曲线</string>
+    <string name="trend_chart_range_systolic_normal">收缩压常见范围：90-120</string>
+    <string name="trend_chart_range_diastolic_normal">舒张压常见范围：60-80</string>
 
     <string name="reminder_title">提醒</string>
     <string name="reminder_every_day">每天</string>

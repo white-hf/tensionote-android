@@ -37,6 +37,12 @@
     <string name="trend_empty_body">Add at least one record to view the last 2 weeks trend.</string>
     <string name="trend_summary_normal">Recent records are all within the common normal range.</string>
     <string name="trend_summary_counts">In the selected trend, systolic was high %1$d times and diastolic was high %2$d times.</string>
+    <string name="trend_chart_axis_pressure">Pressure (mmHg)</string>
+    <string name="trend_chart_axis_date">Date</string>
+    <string name="trend_chart_legend_systolic">Systolic line</string>
+    <string name="trend_chart_legend_diastolic">Diastolic line</string>
+    <string name="trend_chart_range_systolic_normal">Systolic common range: 90-120</string>
+    <string name="trend_chart_range_diastolic_normal">Diastolic common range: 60-80</string>
 
     <string name="reminder_title">Reminder</string>
     <string name="reminder_every_day">Every day</string>

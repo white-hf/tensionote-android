@@ -1,8 +1,8 @@
 package com.tensionote.app
 
 import android.os.Bundle
-import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Description
 import androidx.compose.material.icons.outlined.History
@@ -49,7 +49,7 @@ import com.tensionote.feature.settings.SettingsDocuments
 import com.tensionote.feature.settings.SettingsViewModel
 import com.tensionote.feature.trend.TrendScreen
 
-class MainActivity : ComponentActivity() {
+class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 

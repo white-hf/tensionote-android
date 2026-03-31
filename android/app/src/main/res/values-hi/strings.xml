@@ -37,6 +37,12 @@
     <string name="trend_empty_body">पिछले 2 सप्ताह की प्रवृत्ति देखने के लिए कम से कम 1 रिकॉर्ड जोड़ें।</string>
     <string name="trend_summary_normal">हाल के सभी रिकॉर्ड सामान्य सीमा में हैं।</string>
     <string name="trend_summary_counts">चयनित प्रवृत्ति में सिस्टोलिक %1$d बार और डायस्टोलिक %2$d बार ऊँचा था।</string>
+    <string name="trend_chart_axis_pressure">दबाव (mmHg)</string>
+    <string name="trend_chart_axis_date">तारीख</string>
+    <string name="trend_chart_legend_systolic">सिस्टोलिक रेखा</string>
+    <string name="trend_chart_legend_diastolic">डायस्टोलिक रेखा</string>
+    <string name="trend_chart_range_systolic_normal">सिस्टोलिक सामान्य सीमा: 90-120</string>
+    <string name="trend_chart_range_diastolic_normal">डायस्टोलिक सामान्य सीमा: 60-80</string>
 
     <string name="reminder_title">रिमाइंडर</string>
     <string name="reminder_every_day">हर दिन</string>
