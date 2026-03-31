@@ -211,6 +211,12 @@ fun ReportScreen(viewModel: ReportViewModel) {
                                 Toast.LENGTH_SHORT
                             ).show()
                         }
+                    } else {
+                        Toast.makeText(
+                            context,
+                            context.getString(R.string.report_export_failed),
+                            Toast.LENGTH_SHORT
+                        ).show()
                     }
                 },
                 enabled = state.records.isNotEmpty(),
@@ -230,7 +236,9 @@ fun ReportScreen(viewModel: ReportViewModel) {
                     Text(
                         text = fileName,
                         style = MaterialTheme.typography.bodyMedium,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis
                     )
                 }
             }
