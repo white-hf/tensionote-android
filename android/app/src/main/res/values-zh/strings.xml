@@ -1,0 +1,110 @@
+﻿<resources>
+    <string name="app_name">Tensionote</string>
+    <string name="home_quick_entry_title">快速录入</string>
+    <string name="home_detailed_entry_button">详细录入</string>
+    <string name="common_save_now">立即保存</string>
+    <string name="common_back">返回</string>
+    <string name="common_delete">删除</string>
+    <string name="common_number_placeholder">0</string>
+
+    <string name="home_recent_two_weeks_trend">最近 2 周趋势</string>
+    <string name="home_view_all_trend">查看完整趋势</string>
+
+    <string name="tab_home">首页</string>
+    <string name="tab_history">历史</string>
+    <string name="tab_reminder">提醒</string>
+    <string name="tab_report">报告</string>
+    <string name="tab_settings">设置</string>
+
+    <string name="metric_systolic">收缩压</string>
+    <string name="metric_diastolic">舒张压</string>
+    <string name="metric_heart_rate">心率</string>
+    <string name="record_measured_at">测量时间</string>
+    <string name="record_note">备注</string>
+    <string name="record_tags_section">标签</string>
+    <string name="record_status_preview">状态</string>
+    <string name="record_save_button">保存记录</string>
+    <string name="record_detail_title">记录详情</string>
+    <string name="record_edit_title">编辑</string>
+    <string name="record_delete_button">删除记录</string>
+
+    <string name="history_title">历史记录</string>
+    <string name="history_empty_title">还没有记录</string>
+    <string name="history_empty_body">你保存的血压记录会显示在这里。</string>
+
+    <string name="trend_title">趋势</string>
+    <string name="trend_empty_title">还没有趋势数据</string>
+    <string name="trend_empty_body">至少添加 1 条记录后，才能查看最近 2 周趋势。</string>
+    <string name="trend_summary_normal">最近记录都处于常见正常范围。</string>
+    <string name="trend_summary_counts">当前趋势中，收缩压偏高 %1$d 次，舒张压偏高 %2$d 次。</string>
+
+    <string name="reminder_title">提醒</string>
+    <string name="reminder_every_day">每天</string>
+    <string name="reminder_add">新增</string>
+    <string name="reminder_empty_title">还没有提醒</string>
+    <string name="reminder_empty_body">添加提醒后，你会在该测量血压时收到通知。</string>
+    <string name="reminder_notification_title">血压测量提醒</string>
+    <string name="reminder_notification_body">该记录你的血压了。</string>
+
+    <string name="report_range_7_days">7 天</string>
+    <string name="report_range_14_days">14 天</string>
+    <string name="report_range_30_days">30 天</string>
+    <string name="report_range_custom">自定义范围</string>
+    <string name="report_custom_from">开始日期</string>
+    <string name="report_custom_to">结束日期</string>
+    <string name="report_empty_title">当前范围内没有记录</string>
+    <string name="report_empty_body">请调整时间范围或继续添加血压记录。</string>
+    <string name="report_summary_title">摘要</string>
+    <string name="report_recent_records_title">最近记录</string>
+    <string name="report_metric_count">记录数</string>
+    <string name="report_metric_average_systolic">平均收缩压</string>
+    <string name="report_metric_average_diastolic">平均舒张压</string>
+    <string name="report_metric_average_heart_rate">平均心率</string>
+    <string name="pdf_report_title">Tensionote 报告</string>
+    <string name="pdf_report_range_label">范围</string>
+    <string name="pdf_report_average_label">平均值</string>
+    <string name="report_export_pdf">导出 PDF</string>
+    <string name="report_share_chooser_title">分享报告</string>
+    <string name="report_share_email">邮件分享</string>
+    <string name="report_export_result_prefix">已生成文件：</string>
+    <string name="report_email_subject_format">Tensionote 血压报告（%1$d 天）</string>
+    <string name="report_email_body_format">附件是从 Tensionote 导出的血压报告。\n\n范围：%1$d 天\n记录数：%2$d\n平均值：%3$d / %4$d\n平均心率：%5$d</string>
+
+    <string name="settings_language_title">语言</string>
+    <string name="settings_language_system">跟随系统</string>
+    <string name="settings_language_zh">简体中文</string>
+    <string name="settings_language_en">英文</string>
+    <string name="settings_language_hi">印地语</string>
+    <string name="settings_documents_title">文档</string>
+    <string name="settings_privacy_policy">隐私政策</string>
+    <string name="settings_terms">用户协议</string>
+    <string name="settings_disclaimer">免责声明</string>
+    <string name="document_privacy_content">Tensionote 会将血压记录、提醒和导出的报告保存在当前设备中。本版本不会将你的健康数据上传到服务器。当你主动使用邮件分享或文件分享时，所选内容会交给你选择的目标应用处理。</string>
+    <string name="document_terms_content">Tensionote 是一款用于个人血压记录与管理的工具。分享前，请你自行确认导出内容是否准确完整。该应用不能替代专业医生的建议、诊断或治疗。</string>
+    <string name="document_disclaimer_content">Tensionote 用于帮助你记录和查看血压数据，不提供疾病诊断、治疗建议，也不能替代持证医生。如果血压持续偏高或身体不适加重，请及时咨询医生。</string>
+
+    <string name="tag_morning">晨起</string>
+    <string name="tag_afternoon">午后</string>
+    <string name="tag_evening">晚间</string>
+    <string name="tag_after_meal">饭后</string>
+    <string name="tag_after_exercise">运动后</string>
+    <string name="tag_after_medication">服药后</string>
+    <string name="tag_discomfort">不适</string>
+
+    <string name="validation_enter_valid_numbers">请输入有效数字。</string>
+    <string name="validation_out_of_range">请输入在合理范围内的数值。</string>
+
+    <string name="blood_pressure_status_normal">当前记录处于常见正常范围。</string>
+    <string name="blood_pressure_status_systolic_high">收缩压偏高。</string>
+    <string name="blood_pressure_status_diastolic_high">舒张压偏高。</string>
+    <string name="blood_pressure_status_both_high">收缩压和舒张压偏高。</string>
+    <string name="blood_pressure_status_variability">最近血压波动较明显。</string>
+</resources>
+
+
+
+
+
+
+
+

@@ -1,0 +1,110 @@
+﻿<resources>
+    <string name="app_name">Tensionote</string>
+    <string name="home_quick_entry_title">त्वरित प्रविष्टि</string>
+    <string name="home_detailed_entry_button">विस्तृत प्रविष्टि</string>
+    <string name="common_save_now">अभी सहेजें</string>
+    <string name="common_back">वापस</string>
+    <string name="common_delete">हटाएँ</string>
+    <string name="common_number_placeholder">0</string>
+
+    <string name="home_recent_two_weeks_trend">पिछले 2 सप्ताह की प्रवृत्ति</string>
+    <string name="home_view_all_trend">पूरी प्रवृत्ति देखें</string>
+
+    <string name="tab_home">होम</string>
+    <string name="tab_history">इतिहास</string>
+    <string name="tab_reminder">रिमाइंडर</string>
+    <string name="tab_report">रिपोर्ट</string>
+    <string name="tab_settings">सेटिंग्स</string>
+
+    <string name="metric_systolic">सिस्टोलिक</string>
+    <string name="metric_diastolic">डायस्टोलिक</string>
+    <string name="metric_heart_rate">हृदय गति</string>
+    <string name="record_measured_at">माप का समय</string>
+    <string name="record_note">नोट</string>
+    <string name="record_tags_section">टैग</string>
+    <string name="record_status_preview">स्थिति</string>
+    <string name="record_save_button">रिकॉर्ड सहेजें</string>
+    <string name="record_detail_title">रिकॉर्ड विवरण</string>
+    <string name="record_edit_title">संपादित करें</string>
+    <string name="record_delete_button">रिकॉर्ड हटाएँ</string>
+
+    <string name="history_title">इतिहास</string>
+    <string name="history_empty_title">अभी कोई रिकॉर्ड नहीं है</string>
+    <string name="history_empty_body">आपके सहेजे गए रक्तचाप रिकॉर्ड यहाँ दिखेंगे।</string>
+
+    <string name="trend_title">प्रवृत्ति</string>
+    <string name="trend_empty_title">अभी कोई प्रवृत्ति डेटा नहीं है</string>
+    <string name="trend_empty_body">पिछले 2 सप्ताह की प्रवृत्ति देखने के लिए कम से कम 1 रिकॉर्ड जोड़ें।</string>
+    <string name="trend_summary_normal">हाल के सभी रिकॉर्ड सामान्य सीमा में हैं।</string>
+    <string name="trend_summary_counts">चयनित प्रवृत्ति में सिस्टोलिक %1$d बार और डायस्टोलिक %2$d बार ऊँचा था।</string>
+
+    <string name="reminder_title">रिमाइंडर</string>
+    <string name="reminder_every_day">हर दिन</string>
+    <string name="reminder_add">जोड़ें</string>
+    <string name="reminder_empty_title">अभी कोई रिमाइंडर नहीं है</string>
+    <string name="reminder_empty_body">रिमाइंडर जोड़ें ताकि रक्तचाप मापने के समय आपको सूचना मिले।</string>
+    <string name="reminder_notification_title">रक्तचाप रिमाइंडर</string>
+    <string name="reminder_notification_body">अब अपना रक्तचाप दर्ज करने का समय है।</string>
+
+    <string name="report_range_7_days">7 दिन</string>
+    <string name="report_range_14_days">14 दिन</string>
+    <string name="report_range_30_days">30 दिन</string>
+    <string name="report_range_custom">कस्टम अवधि</string>
+    <string name="report_custom_from">प्रारंभ तिथि</string>
+    <string name="report_custom_to">समाप्ति तिथि</string>
+    <string name="report_empty_title">इस अवधि में कोई रिकॉर्ड नहीं है</string>
+    <string name="report_empty_body">समय सीमा बदलें या और रक्तचाप रिकॉर्ड जोड़ें।</string>
+    <string name="report_summary_title">सारांश</string>
+    <string name="report_recent_records_title">हाल के रिकॉर्ड</string>
+    <string name="report_metric_count">रिकॉर्ड संख्या</string>
+    <string name="report_metric_average_systolic">औसत सिस्टोलिक</string>
+    <string name="report_metric_average_diastolic">औसत डायस्टोलिक</string>
+    <string name="report_metric_average_heart_rate">औसत हृदय गति</string>
+    <string name="pdf_report_title">Tensionote रिपोर्ट</string>
+    <string name="pdf_report_range_label">अवधि</string>
+    <string name="pdf_report_average_label">औसत</string>
+    <string name="report_export_pdf">PDF निर्यात करें</string>
+    <string name="report_share_chooser_title">रिपोर्ट साझा करें</string>
+    <string name="report_share_email">ईमेल से साझा करें</string>
+    <string name="report_export_result_prefix">फ़ाइल बनाई गई:</string>
+    <string name="report_email_subject_format">Tensionote रक्तचाप रिपोर्ट (%1$d दिन)</string>
+    <string name="report_email_body_format">संलग्नक में Tensionote से निर्यात की गई रक्तचाप रिपोर्ट है।\n\nअवधि: %1$d दिन\nरिकॉर्ड: %2$d\nऔसत: %3$d / %4$d\nऔसत हृदय गति: %5$d</string>
+
+    <string name="settings_language_title">भाषा</string>
+    <string name="settings_language_system">सिस्टम का पालन करें</string>
+    <string name="settings_language_zh">सरलीकृत चीनी</string>
+    <string name="settings_language_en">अंग्रेज़ी</string>
+    <string name="settings_language_hi">हिंदी</string>
+    <string name="settings_documents_title">दस्तावेज़</string>
+    <string name="settings_privacy_policy">गोपनीयता नीति</string>
+    <string name="settings_terms">सेवा की शर्तें</string>
+    <string name="settings_disclaimer">अस्वीकरण</string>
+    <string name="document_privacy_content">Tensionote इस संस्करण में आपके रक्तचाप रिकॉर्ड, रिमाइंडर और निर्यात की गई रिपोर्ट इसी डिवाइस पर संग्रहीत करता है। ऐप आपके स्वास्थ्य डेटा को सर्वर पर अपलोड नहीं करता। जब आप ईमेल या फ़ाइल साझा करना चुनते हैं, तो चुनी गई सामग्री आपके चुने हुए ऐप को सौंपी जाती है।</string>
+    <string name="document_terms_content">Tensionote व्यक्तिगत रक्तचाप रिकॉर्ड और प्रबंधन के लिए एक उपकरण है। साझा करने से पहले निर्यात की गई सामग्री की समीक्षा करना आपकी जिम्मेदारी है। यह ऐप पेशेवर चिकित्सीय सलाह, निदान या उपचार का विकल्प नहीं है।</string>
+    <string name="document_disclaimer_content">Tensionote आपको रक्तचाप डेटा दर्ज करने और देखने में मदद करता है। यह बीमारी का निदान नहीं करता, उपचार निर्धारित नहीं करता और न ही लाइसेंस प्राप्त चिकित्सक का स्थान लेता है। यदि रीडिंग लगातार ऊँची रहे या लक्षण बढ़ें, तो चिकित्सकीय सलाह लें।</string>
+
+    <string name="tag_morning">सुबह</string>
+    <string name="tag_afternoon">दोपहर</string>
+    <string name="tag_evening">शाम</string>
+    <string name="tag_after_meal">भोजन के बाद</string>
+    <string name="tag_after_exercise">व्यायाम के बाद</string>
+    <string name="tag_after_medication">दवा के बाद</string>
+    <string name="tag_discomfort">अस्वस्थता</string>
+
+    <string name="validation_enter_valid_numbers">कृपया मान्य संख्याएँ दर्ज करें।</string>
+    <string name="validation_out_of_range">कृपया मान्य सीमा के भीतर मान दर्ज करें।</string>
+
+    <string name="blood_pressure_status_normal">यह रीडिंग सामान्य सीमा में है।</string>
+    <string name="blood_pressure_status_systolic_high">सिस्टोलिक दबाव ऊँचा है।</string>
+    <string name="blood_pressure_status_diastolic_high">डायस्टोलिक दबाव ऊँचा है।</string>
+    <string name="blood_pressure_status_both_high">सिस्टोलिक और डायस्टोलिक दबाव ऊँचे हैं।</string>
+    <string name="blood_pressure_status_variability">रक्तचाप में हाल में स्पष्ट उतार-चढ़ाव रहा है।</string>
+</resources>
+
+
+
+
+
+
+
+
