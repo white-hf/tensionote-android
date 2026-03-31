@@ -1,26 +1,33 @@
 <svg width="1080" height="1920" viewBox="0 0 1080 1920" fill="none" xmlns="http://www.w3.org/2000/svg">
   <rect width="1080" height="1920" fill="#F5FAFA"/>
-  <text x="96" y="156" font-family="Segoe UI, Arial, sans-serif" font-size="54" font-weight="700" fill="#12343B">Review Every Reading Clearly</text>
-  <text x="96" y="224" font-family="Segoe UI, Arial, sans-serif" font-size="30" fill="#4F6D73">History stays readable, editable, and direct.</text>
-  <g transform="translate(78 320)">
+  <rect width="1080" height="286" fill="#12343B"/>
+  <g transform="translate(78 68)">
+    <rect width="112" height="112" rx="34" fill="#0E252A"/>
+    <path d="M56 18C41 36 30 49 30 66C30 84 41 99 56 99C71 99 82 84 82 66C82 49 71 36 56 18Z" fill="#E65555"/>
+    <path d="M21 68H39L45 58L54 80L63 62H88" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <text x="222" y="126" font-family="Segoe UI, Arial, sans-serif" font-size="60" font-weight="800" fill="#F5FAFA">Tensionote</text>
+  <text x="222" y="184" font-family="Segoe UI, Arial, sans-serif" font-size="28" fill="#CBE0DE">Review Every Reading Clearly</text>
+  <text x="78" y="352" font-family="Segoe UI, Arial, sans-serif" font-size="30" font-weight="700" fill="#12343B">History stays readable, editable, and direct.</text>
+  <g transform="translate(78 398)">
     <rect width="924" height="260" rx="40" fill="white"/>
     <text x="48" y="78" font-family="Segoe UI, Arial, sans-serif" font-size="28" fill="#5B777C">Mar 31, 8:10 AM</text>
     <text x="48" y="156" font-family="Segoe UI, Arial, sans-serif" font-size="68" font-weight="700" fill="#12343B">128 / 82</text>
     <text x="48" y="212" font-family="Segoe UI, Arial, sans-serif" font-size="30" fill="#5B777C">Heart Rate 76</text>
-    <text x="610" y="156" font-family="Segoe UI, Arial, sans-serif" font-size="34" font-weight="600" fill="#A03B3B">Systolic pressure is high.</text>
+    <text x="610" y="156" font-family="Segoe UI, Arial, sans-serif" font-size="34" font-weight="700" fill="#A03B3B">Systolic pressure is high.</text>
   </g>
-  <g transform="translate(78 616)">
+  <g transform="translate(78 694)">
     <rect width="924" height="260" rx="40" fill="white"/>
     <text x="48" y="78" font-family="Segoe UI, Arial, sans-serif" font-size="28" fill="#5B777C">Mar 30, 7:54 PM</text>
     <text x="48" y="156" font-family="Segoe UI, Arial, sans-serif" font-size="68" font-weight="700" fill="#12343B">118 / 76</text>
     <text x="48" y="212" font-family="Segoe UI, Arial, sans-serif" font-size="30" fill="#5B777C">Heart Rate 72</text>
-    <text x="690" y="156" font-family="Segoe UI, Arial, sans-serif" font-size="34" font-weight="600" fill="#177E89">Within normal range.</text>
+    <text x="674" y="156" font-family="Segoe UI, Arial, sans-serif" font-size="34" font-weight="700" fill="#177E89">Within normal range.</text>
   </g>
-  <g transform="translate(78 912)">
+  <g transform="translate(78 990)">
     <rect width="924" height="260" rx="40" fill="white"/>
     <text x="48" y="78" font-family="Segoe UI, Arial, sans-serif" font-size="28" fill="#5B777C">Mar 29, 8:02 AM</text>
     <text x="48" y="156" font-family="Segoe UI, Arial, sans-serif" font-size="68" font-weight="700" fill="#12343B">122 / 92</text>
     <text x="48" y="212" font-family="Segoe UI, Arial, sans-serif" font-size="30" fill="#5B777C">Heart Rate 81</text>
-    <text x="618" y="156" font-family="Segoe UI, Arial, sans-serif" font-size="34" font-weight="600" fill="#A0621D">Diastolic pressure is high.</text>
+    <text x="618" y="156" font-family="Segoe UI, Arial, sans-serif" font-size="34" font-weight="700" fill="#A0621D">Diastolic pressure is high.</text>
   </g>
 </svg>

@@ -1,21 +1,36 @@
 <svg width="1024" height="500" viewBox="0 0 1024 500" fill="none" xmlns="http://www.w3.org/2000/svg">
   <rect width="1024" height="500" rx="32" fill="#F5FAFA"/>
-  <circle cx="850" cy="96" r="180" fill="#EAF5F4"/>
-  <circle cx="940" cy="430" r="220" fill="#D8ECE9"/>
-  <text x="88" y="176" font-family="Segoe UI, Arial, sans-serif" font-size="56" font-weight="700" fill="#12343B">Tensionote</text>
-  <text x="88" y="236" font-family="Segoe UI, Arial, sans-serif" font-size="26" fill="#46646A">Fast blood pressure logging with a clear 2-week trend.</text>
-  <g transform="translate(88 290)">
-    <rect width="164" height="68" rx="18" fill="#177E89"/>
-    <text x="82" y="43" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="600" fill="white">Quick Entry</text>
+  <rect x="0" y="0" width="1024" height="500" rx="32" fill="url(#bg)"/>
+  <g transform="translate(72 82)">
+    <rect width="160" height="160" rx="48" fill="#12343B"/>
+    <path d="M80 28C59 53 44 72 44 95C44 120 60 140 80 140C100 140 116 120 116 95C116 72 101 53 80 28Z" fill="#E65555"/>
+    <path d="M34 97H58L66 82L78 112L89 89H126" stroke="#FFFFFF" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
   </g>
-  <g transform="translate(290 290)">
-    <rect width="170" height="68" rx="18" fill="#FFFFFF"/>
-    <rect x="0.5" y="0.5" width="169" height="67" rx="17.5" stroke="#C6DDDA"/>
-    <text x="85" y="43" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="600" fill="#12343B">Trend Insight</text>
+  <text x="266" y="152" font-family="Segoe UI, Arial, sans-serif" font-size="72" font-weight="800" fill="#12343B">Tensionote</text>
+  <text x="268" y="206" font-family="Segoe UI, Arial, sans-serif" font-size="28" fill="#4F6D73">Simple recording. Direct pressure insight.</text>
+  <g transform="translate(270 270)">
+    <rect width="180" height="68" rx="18" fill="#12343B"/>
+    <text x="90" y="44" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="700" fill="#F5FAFA">Quick Entry</text>
   </g>
-  <g transform="translate(718 112)">
-    <rect width="180" height="180" rx="44" fill="#EAF5F4"/>
-    <path d="M90 30C69 54 52 72 52 96C52 123 69 145 90 145C111 145 128 123 128 96C128 72 111 54 90 30Z" fill="#E65555"/>
-    <path d="M44 102H71L80 85L93 118L104 94H136" stroke="white" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <g transform="translate(470 270)">
+    <rect width="184" height="68" rx="18" fill="#FFFFFF"/>
+    <rect x="0.5" y="0.5" width="183" height="67" rx="17.5" stroke="#C6DDDA"/>
+    <text x="92" y="44" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="700" fill="#12343B">2-Week Trend</text>
   </g>
+  <g transform="translate(748 82)">
+    <rect width="196" height="336" rx="28" fill="#FFFFFF"/>
+    <rect x="18" y="28" width="160" height="22" rx="11" fill="#D9EAE8"/>
+    <rect x="24" y="82" width="70" height="82" rx="18" fill="#F4F7F7"/>
+    <rect x="102" y="82" width="70" height="82" rx="18" fill="#F4F7F7"/>
+    <rect x="24" y="176" width="148" height="82" rx="18" fill="#F4F7F7"/>
+    <rect x="24" y="278" width="148" height="36" rx="18" fill="#F3E6E6"/>
+    <path d="M26 248C44 232 68 198 92 208C118 220 132 176 152 188C163 194 170 188 172 178" stroke="#E65555" stroke-width="6" stroke-linecap="round"/>
+    <path d="M26 262C48 252 72 236 92 240C118 246 132 220 152 226C163 229 170 224 172 216" stroke="#177E89" stroke-width="6" stroke-linecap="round"/>
+  </g>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1024" y2="500" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F5FAFA"/>
+      <stop offset="1" stop-color="#EAF5F4"/>
+    </linearGradient>
+  </defs>
 </svg>
