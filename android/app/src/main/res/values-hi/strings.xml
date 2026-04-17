@@ -39,6 +39,7 @@
     <string name="trend_summary_counts">चयनित प्रवृत्ति में सिस्टोलिक %1$d बार और डायस्टोलिक %2$d बार ऊँचा था।</string>
     <string name="trend_chart_axis_pressure">दबाव (mmHg)</string>
     <string name="trend_chart_axis_date">तारीख</string>
+    <string name="trend_chart_legend_thresholds">वर्तमान क्षेत्रीय उच्च रक्तचाप सीमा: सिस्टोलिक %1$d, डायस्टोलिक %2$d।</string>
     <string name="trend_chart_legend_systolic">सिस्टोलिक रेखा</string>
     <string name="trend_chart_legend_diastolic">डायस्टोलिक रेखा</string>
     <string name="trend_chart_range_systolic_normal">सिस्टोलिक सामान्य सीमा: 90-120</string>
@@ -76,6 +77,8 @@
     <string name="report_share_chooser_title">रिपोर्ट साझा करें</string>
     <string name="report_share_email">ईमेल से साझा करें</string>
     <string name="report_export_result_prefix">फ़ाइल बनाई गई:</string>
+    <string name="report_export_saved_hint">निर्यात के बाद सिस्टम सेव डायलॉग खुलेगा, जहाँ आप PDF को Files या किसी अन्य स्थान पर सहेज सकते हैं।</string>
+    <string name="report_export_saved_success">PDF सफलतापूर्वक सहेजा गया।</string>
     <string name="report_export_failed">PDF रिपोर्ट बनाना संभव नहीं है।</string>
     <string name="report_share_failed">रिपोर्ट साझा करने के लिए कोई ऐप उपलब्ध नहीं है।</string>
     <string name="report_email_subject_format">Tensionote रक्तचाप रिपोर्ट (%1$d दिन)</string>
@@ -107,14 +110,24 @@
     <string name="validation_enter_valid_numbers">कृपया मान्य संख्याएँ दर्ज करें।</string>
     <string name="validation_out_of_range">कृपया मान्य सीमा के भीतर मान दर्ज करें।</string>
 
+    <string name="blood_pressure_category_normal">सामान्य</string>
+    <string name="blood_pressure_category_high_normal">उच्च-सामान्य</string>
+    <string name="blood_pressure_category_elevated">रक्तचाप बढ़ा हुआ</string>
+    <string name="blood_pressure_category_stage_1_hypertension">स्टेज 1 उच्च रक्तचाप</string>
+    <string name="blood_pressure_category_stage_2_hypertension">स्टेज 2 उच्च रक्तचाप</string>
+    <string name="blood_pressure_category_hypertension">उच्च रक्तचाप</string>
+    <string name="blood_pressure_category_grade_1_hypertension">ग्रेड 1 उच्च रक्तचाप</string>
+    <string name="blood_pressure_category_grade_2_hypertension">ग्रेड 2 उच्च रक्तचाप</string>
+    <string name="blood_pressure_category_grade_3_hypertension">ग्रेड 3 उच्च रक्तचाप</string>
+    <string name="blood_pressure_category_severe_hypertension">गंभीर उच्च रक्तचाप</string>
+    <string name="blood_pressure_category_hypertensive_crisis">हाइपरटेंसिव क्राइसिस</string>
+
     <string name="blood_pressure_status_normal">यह रीडिंग सामान्य सीमा में है।</string>
     <string name="blood_pressure_status_systolic_high">सिस्टोलिक दबाव ऊँचा है।</string>
     <string name="blood_pressure_status_diastolic_high">डायस्टोलिक दबाव ऊँचा है।</string>
     <string name="blood_pressure_status_both_high">सिस्टोलिक और डायस्टोलिक दबाव ऊँचे हैं।</string>
     <string name="blood_pressure_status_variability">रक्तचाप में हाल में स्पष्ट उतार-चढ़ाव रहा है।</string>
 </resources>
-
-
 
 
 

@@ -26,17 +26,18 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import com.tensionote.R
-import com.tensionote.core.model.BloodPressureStatus
+import com.tensionote.core.model.BloodPressureCategory
+import com.tensionote.core.model.RegionalBloodPressureEvaluator
 import com.tensionote.core.model.labelResId
+import com.tensionote.core.model.tintColor
 import com.tensionote.core.repository.AppGraph
-import com.tensionote.core.rules.BloodPressureStatusEvaluator
 import com.tensionote.core.rules.RecordInputValidator
 import java.time.Instant
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun DetailedRecordScreen(
-    initialStatus: BloodPressureStatus,
+    initialCategory: BloodPressureCategory,
     onBack: () -> Unit
 ) {
     var systolic by remember { mutableStateOf("") }
@@ -47,7 +48,7 @@ fun DetailedRecordScreen(
     var measuredAt by remember { mutableStateOf(Instant.now()) }
     var validationMessage by remember { mutableStateOf<String?>(null) }
     val validator = remember { RecordInputValidator() }
-    val evaluator = remember { BloodPressureStatusEvaluator() }
+    val evaluator = remember { RegionalBloodPressureEvaluator() }
     val validationOutOfRange = stringResource(R.string.validation_out_of_range)
     val validationInvalidNumbers = stringResource(R.string.validation_enter_valid_numbers)
     val tagItems = listOf(
@@ -60,10 +61,10 @@ fun DetailedRecordScreen(
         "tag_discomfort" to stringResource(R.string.tag_discomfort)
     )
 
-    val previewStatus = remember(systolic, diastolic, initialStatus) {
+    val previewCategory = remember(systolic, diastolic, initialCategory) {
         val systolicValue = systolic.toIntOrNull()
         val diastolicValue = diastolic.toIntOrNull()
-        if (systolicValue == null || diastolicValue == null) initialStatus else evaluator.evaluate(systolicValue, diastolicValue)
+        if (systolicValue == null || diastolicValue == null) initialCategory else evaluator.evaluate(systolicValue, diastolicValue)
     }
 
     Column(
@@ -144,8 +145,9 @@ fun DetailedRecordScreen(
                 style = MaterialTheme.typography.bodyMedium
             )
             Text(
-                text = stringResource(previewStatus.labelResId()),
-                style = MaterialTheme.typography.titleMedium
+                text = stringResource(previewCategory.labelResId()),
+                style = MaterialTheme.typography.titleMedium,
+                color = previewCategory.tintColor()
             )
         }
         Button(

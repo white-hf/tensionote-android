@@ -39,6 +39,7 @@
     <string name="trend_summary_counts">当前趋势中，收缩压偏高 %1$d 次，舒张压偏高 %2$d 次。</string>
     <string name="trend_chart_axis_pressure">压力（mmHg）</string>
     <string name="trend_chart_axis_date">日期</string>
+    <string name="trend_chart_legend_thresholds">当前区域高血压阈值：收缩压 %1$d，舒张压 %2$d。</string>
     <string name="trend_chart_legend_systolic">收缩压曲线</string>
     <string name="trend_chart_legend_diastolic">舒张压曲线</string>
     <string name="trend_chart_range_systolic_normal">收缩压常见范围：90-120</string>
@@ -76,6 +77,8 @@
     <string name="report_share_chooser_title">分享报告</string>
     <string name="report_share_email">邮件分享</string>
     <string name="report_export_result_prefix">已生成文件：</string>
+    <string name="report_export_saved_hint">导出后会打开系统保存对话框，你可以把 PDF 保存到“文件”或其他位置。</string>
+    <string name="report_export_saved_success">PDF 已成功保存。</string>
     <string name="report_export_failed">无法生成 PDF 报告。</string>
     <string name="report_share_failed">没有可用的应用来分享报告。</string>
     <string name="report_email_subject_format">Tensionote 血压报告（%1$d 天）</string>
@@ -107,14 +110,24 @@
     <string name="validation_enter_valid_numbers">请输入有效数字。</string>
     <string name="validation_out_of_range">请输入在合理范围内的数值。</string>
 
+    <string name="blood_pressure_category_normal">正常</string>
+    <string name="blood_pressure_category_high_normal">正常高值</string>
+    <string name="blood_pressure_category_elevated">血压偏高</string>
+    <string name="blood_pressure_category_stage_1_hypertension">1 期高血压</string>
+    <string name="blood_pressure_category_stage_2_hypertension">2 期高血压</string>
+    <string name="blood_pressure_category_hypertension">高血压</string>
+    <string name="blood_pressure_category_grade_1_hypertension">1 级高血压</string>
+    <string name="blood_pressure_category_grade_2_hypertension">2 级高血压</string>
+    <string name="blood_pressure_category_grade_3_hypertension">3 级高血压</string>
+    <string name="blood_pressure_category_severe_hypertension">重度高血压</string>
+    <string name="blood_pressure_category_hypertensive_crisis">高血压危象</string>
+
     <string name="blood_pressure_status_normal">当前记录处于常见正常范围。</string>
     <string name="blood_pressure_status_systolic_high">收缩压偏高。</string>
     <string name="blood_pressure_status_diastolic_high">舒张压偏高。</string>
     <string name="blood_pressure_status_both_high">收缩压和舒张压偏高。</string>
     <string name="blood_pressure_status_variability">最近血压波动较明显。</string>
 </resources>
-
-
 
 
 

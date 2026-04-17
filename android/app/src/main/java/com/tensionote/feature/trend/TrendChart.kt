@@ -30,7 +30,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.tensionote.R
 import com.tensionote.core.model.BloodPressureRecord
-import com.tensionote.core.model.BloodPressureStatus
+import com.tensionote.core.model.RegionalBloodPressureEvaluator
+import com.tensionote.core.model.regionalCategory
+import com.tensionote.core.model.tintColor
 import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
@@ -49,6 +51,7 @@ fun TrendChart(
     val diastolicColor = Color(0xFF177E89)
     val systolicRangeColor = Color(0x1AE65555)
     val diastolicRangeColor = Color(0x1A177E89)
+    val evaluator = RegionalBloodPressureEvaluator()
     val pressureAxisLabel = stringResource(R.string.trend_chart_axis_pressure)
     val dateAxisLabel = stringResource(R.string.trend_chart_axis_date)
     val systolicLegend = stringResource(R.string.trend_chart_legend_systolic)
@@ -66,7 +69,15 @@ fun TrendChart(
     val maxData = allValues.maxOrNull() ?: 160
     val minValue = min(60, ((minData - 10) / 10) * 10)
     val maxValue = max(160, (((maxData + 9) / 10) * 10))
-    val tickValues = listOf(maxValue, 140, 120, 90, 80, 60, minValue)
+    val tickValues = listOf(
+        maxValue,
+        evaluator.standard.hypertensionSystolicThreshold,
+        120,
+        evaluator.standard.hypertensionDiastolicThreshold,
+        80,
+        60,
+        minValue
+    )
         .distinct()
         .filter { it in minValue..maxValue }
         .sortedDescending()
@@ -83,9 +94,9 @@ fun TrendChart(
             if (records.isEmpty()) return@Canvas
 
             val leftPadding = 90f
-            val rightPadding = 28f
-            val topPadding = 28f
-            val bottomPadding = 52f
+            val rightPadding = 44f
+            val topPadding = 42f
+            val bottomPadding = 72f
             val chartWidth = size.width - leftPadding - rightPadding
             val chartHeight = size.height - topPadding - bottomPadding
             if (chartWidth <= 0f || chartHeight <= 0f) return@Canvas
@@ -125,10 +136,16 @@ fun TrendChart(
             tickValues.forEach { tick ->
                 val y = chartY(tick)
                 drawLine(
-                    color = if (tick == 140 || tick == 90) Color(0xFFB9CACA) else gridColor,
+                    color = if (
+                        tick == evaluator.standard.hypertensionSystolicThreshold ||
+                        tick == evaluator.standard.hypertensionDiastolicThreshold
+                    ) Color(0xFFB9CACA) else gridColor,
                     start = Offset(leftPadding, y),
                     end = Offset(leftPadding + chartWidth, y),
-                    strokeWidth = if (tick == 140 || tick == 90) 2.5f else 1.5f
+                    strokeWidth = if (
+                        tick == evaluator.standard.hypertensionSystolicThreshold ||
+                        tick == evaluator.standard.hypertensionDiastolicThreshold
+                    ) 2.5f else 1.5f
                 )
                 drawContext.canvas.nativeCanvas.drawText(
                     tick.toString(),
@@ -140,8 +157,8 @@ fun TrendChart(
 
             drawContext.canvas.nativeCanvas.drawText(
                 pressureAxisLabel,
-                8f,
-                topPadding - 6f,
+                leftPadding,
+                18f,
                 smallPaint
             )
 
@@ -173,7 +190,7 @@ fun TrendChart(
 
             records.forEachIndexed { index, record ->
                 drawCircle(
-                    color = statusColor(record.status),
+                    color = record.regionalCategory.tintColor(),
                     radius = 7f,
                     center = Offset(chartX(index), chartY(record.systolic))
                 )
@@ -192,15 +209,16 @@ fun TrendChart(
                 drawContext.canvas.nativeCanvas.drawText(
                     dateLabel,
                     x.coerceIn(leftPadding, leftPadding + chartWidth - textWidth),
-                    topPadding + chartHeight + 34f,
+                    topPadding + chartHeight + 30f,
                     axisPaint
                 )
             }
 
+            val dateAxisLabelWidth = smallPaint.measureText(dateAxisLabel)
             drawContext.canvas.nativeCanvas.drawText(
                 dateAxisLabel,
-                leftPadding + chartWidth - 36f,
-                topPadding + chartHeight + 18f,
+                leftPadding + chartWidth - dateAxisLabelWidth,
+                size.height - 8f,
                 smallPaint
             )
         }
@@ -238,16 +256,6 @@ private fun LegendItem(color: Color, text: String) {
             style = MaterialTheme.typography.bodySmall,
             color = MaterialTheme.colorScheme.onSurfaceVariant
         )
-    }
-}
-
-private fun statusColor(status: BloodPressureStatus): Color {
-    return when (status) {
-        BloodPressureStatus.NORMAL -> Color(0xFF16A34A)
-        BloodPressureStatus.SYSTOLIC_HIGH -> Color(0xFFDC2626)
-        BloodPressureStatus.DIASTOLIC_HIGH -> Color(0xFFEA580C)
-        BloodPressureStatus.BOTH_HIGH -> Color(0xFFB91C1C)
-        BloodPressureStatus.VARIABILITY -> Color(0xFF7C3AED)
     }
 }
 

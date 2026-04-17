@@ -18,9 +18,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.tensionote.R
-import com.tensionote.core.model.BloodPressureStatus
 import com.tensionote.core.model.RecordFormatters
+import com.tensionote.core.model.RegionalBloodPressureEvaluator
 import com.tensionote.core.model.labelResId
+import com.tensionote.core.model.regionalCategory
+import com.tensionote.core.model.tintColor
 import com.tensionote.feature.home.HomeViewModel
 
 @Composable
@@ -29,11 +31,12 @@ fun TrendScreen(
     onBack: () -> Unit
 ) {
     val state by viewModel.uiState.collectAsState()
+    val evaluator = androidx.compose.runtime.remember { RegionalBloodPressureEvaluator() }
     val systolicHighCount = state.trendRecords.count {
-        it.status == BloodPressureStatus.SYSTOLIC_HIGH || it.status == BloodPressureStatus.BOTH_HIGH
+        evaluator.standard.isSystolicAboveHypertensionThreshold(it.systolic)
     }
     val diastolicHighCount = state.trendRecords.count {
-        it.status == BloodPressureStatus.DIASTOLIC_HIGH || it.status == BloodPressureStatus.BOTH_HIGH
+        evaluator.standard.isDiastolicAboveHypertensionThreshold(it.diastolic)
     }
 
     LazyColumn(
@@ -62,7 +65,19 @@ fun TrendScreen(
                         Text(stringResource(R.string.trend_empty_body), style = MaterialTheme.typography.bodyMedium)
                     } else {
                         TrendChart(records = state.trendRecords)
-                        Text(stringResource(state.selectedStatus.labelResId()), style = MaterialTheme.typography.titleMedium)
+                        Text(
+                            stringResource(state.selectedCategory.labelResId()),
+                            style = MaterialTheme.typography.titleMedium,
+                            color = state.selectedCategory.tintColor()
+                        )
+                        Text(
+                            stringResource(
+                                R.string.trend_chart_legend_thresholds,
+                                evaluator.standard.hypertensionSystolicThreshold,
+                                evaluator.standard.hypertensionDiastolicThreshold
+                            ),
+                            style = MaterialTheme.typography.bodySmall
+                        )
                         if (systolicHighCount > 0 || diastolicHighCount > 0) {
                             Text(stringResource(R.string.trend_summary_counts, systolicHighCount, diastolicHighCount))
                         } else {
@@ -82,7 +97,11 @@ fun TrendScreen(
                     Column(modifier = Modifier.padding(8.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) {
                         Text(RecordFormatters.formatMeasuredAt(record), style = MaterialTheme.typography.bodySmall)
                         Text("${record.systolic}/${record.diastolic}", style = MaterialTheme.typography.titleLarge)
-                        Text(stringResource(record.status.labelResId()), style = MaterialTheme.typography.bodyMedium)
+                        Text(
+                            stringResource(record.regionalCategory.labelResId()),
+                            style = MaterialTheme.typography.bodyMedium,
+                            color = record.regionalCategory.tintColor()
+                        )
                     }
                 }
             }

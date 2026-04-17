@@ -2,6 +2,7 @@ package com.tensionote.feature.home
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.Button
@@ -13,14 +14,18 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalFocusManager
+import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import com.tensionote.R
-import com.tensionote.core.model.BloodPressureStatus
+import com.tensionote.core.model.RegionalBloodPressureEvaluator
 import com.tensionote.core.model.labelResId
+import com.tensionote.core.model.tintColor
 import com.tensionote.feature.trend.TrendChart
 
 @Composable
@@ -30,12 +35,15 @@ fun HomeScreen(
     onTrendClick: () -> Unit
 ) {
     val state by viewModel.uiState.collectAsState()
-    val displayStatus = state.draftStatus ?: state.selectedStatus
+    val keyboardController = LocalSoftwareKeyboardController.current
+    val focusManager = LocalFocusManager.current
+    val evaluator = remember { RegionalBloodPressureEvaluator() }
+    val displayCategory = state.draftCategory ?: state.selectedCategory
     val systolicHighCount = state.trendRecords.count {
-        it.status == BloodPressureStatus.SYSTOLIC_HIGH || it.status == BloodPressureStatus.BOTH_HIGH
+        evaluator.standard.isSystolicAboveHypertensionThreshold(it.systolic)
     }
     val diastolicHighCount = state.trendRecords.count {
-        it.status == BloodPressureStatus.DIASTOLIC_HIGH || it.status == BloodPressureStatus.BOTH_HIGH
+        evaluator.standard.isDiastolicAboveHypertensionThreshold(it.diastolic)
     }
 
     LazyColumn(
@@ -62,7 +70,13 @@ fun HomeScreen(
                             onValueChange = viewModel::updateSystolic,
                             label = { Text(stringResource(R.string.metric_systolic)) },
                             placeholder = { Text(stringResource(R.string.common_number_placeholder)) },
-                            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+                            keyboardOptions = KeyboardOptions(
+                                keyboardType = KeyboardType.Number,
+                                imeAction = ImeAction.Next
+                            ),
+                            keyboardActions = KeyboardActions(
+                                onNext = { focusManager.moveFocus(androidx.compose.ui.focus.FocusDirection.Next) }
+                            ),
                             modifier = Modifier.weight(1f)
                         )
                         OutlinedTextField(
@@ -70,7 +84,13 @@ fun HomeScreen(
                             onValueChange = viewModel::updateDiastolic,
                             label = { Text(stringResource(R.string.metric_diastolic)) },
                             placeholder = { Text(stringResource(R.string.common_number_placeholder)) },
-                            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+                            keyboardOptions = KeyboardOptions(
+                                keyboardType = KeyboardType.Number,
+                                imeAction = ImeAction.Next
+                            ),
+                            keyboardActions = KeyboardActions(
+                                onNext = { focusManager.moveFocus(androidx.compose.ui.focus.FocusDirection.Next) }
+                            ),
                             modifier = Modifier.weight(1f)
                         )
                     }
@@ -80,12 +100,25 @@ fun HomeScreen(
                         onValueChange = viewModel::updateHeartRate,
                         label = { Text(stringResource(R.string.metric_heart_rate)) },
                         placeholder = { Text(stringResource(R.string.common_number_placeholder)) },
-                        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+                        keyboardOptions = KeyboardOptions(
+                            keyboardType = KeyboardType.Number,
+                            imeAction = ImeAction.Done
+                        ),
+                        keyboardActions = KeyboardActions(
+                            onDone = {
+                                keyboardController?.hide()
+                                focusManager.clearFocus()
+                            }
+                        ),
                         modifier = Modifier.fillMaxWidth()
                     )
 
                     Button(
-                        onClick = viewModel::saveQuickRecord,
+                        onClick = {
+                            keyboardController?.hide()
+                            focusManager.clearFocus()
+                            viewModel.saveQuickRecord()
+                        },
                         modifier = Modifier.fillMaxWidth()
                     ) {
                         Text(stringResource(R.string.common_save_now))
@@ -125,9 +158,18 @@ fun HomeScreen(
                     } else {
                         TrendChart(records = state.trendRecords)
                         Text(
-                            stringResource(displayStatus.labelResId()),
+                            stringResource(displayCategory.labelResId()),
                             style = MaterialTheme.typography.titleMedium,
-                            color = statusColor(displayStatus)
+                            color = displayCategory.tintColor()
+                        )
+                        Text(
+                            stringResource(
+                                R.string.trend_chart_legend_thresholds,
+                                evaluator.standard.hypertensionSystolicThreshold,
+                                evaluator.standard.hypertensionDiastolicThreshold
+                            ),
+                            style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant
                         )
                         Text(
                             if (systolicHighCount > 0 || diastolicHighCount > 0) {
@@ -143,16 +185,5 @@ fun HomeScreen(
             }
         }
 
-    }
-}
-
-@Composable
-private fun statusColor(status: BloodPressureStatus): Color {
-    return when (status) {
-        BloodPressureStatus.NORMAL -> Color(0xFF2E7D32)
-        BloodPressureStatus.SYSTOLIC_HIGH -> MaterialTheme.colorScheme.error
-        BloodPressureStatus.DIASTOLIC_HIGH -> Color(0xFFEF6C00)
-        BloodPressureStatus.BOTH_HIGH -> MaterialTheme.colorScheme.error
-        BloodPressureStatus.VARIABILITY -> Color(0xFF6A1B9A)
     }
 }

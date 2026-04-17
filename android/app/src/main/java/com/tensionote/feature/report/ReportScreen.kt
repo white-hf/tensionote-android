@@ -1,27 +1,39 @@
 package com.tensionote.feature.report
 
 import android.app.DatePickerDialog
+import android.net.Uri
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.background
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.compose.foundation.shape.RoundedCornerShape
 import android.widget.Toast
 import com.tensionote.R
 import com.tensionote.core.export.ReportShareHelper
 import com.tensionote.core.model.RecordFormatters
+import com.tensionote.core.model.backgroundColor
 import com.tensionote.core.model.labelResId
+import com.tensionote.core.model.regionalCategory
+import com.tensionote.core.model.tintColor
 import java.io.File
 import java.time.LocalDate
 import java.time.ZoneId
@@ -32,6 +44,33 @@ fun ReportScreen(viewModel: ReportViewModel) {
     val state by viewModel.uiState.collectAsState()
     val context = LocalContext.current
     val dateFormatter = rememberDateFormatter()
+    var pendingExportPath by remember { mutableStateOf<String?>(null) }
+    val createDocumentLauncher = rememberLauncherForActivityResult(
+        contract = ActivityResultContracts.CreateDocument("application/pdf")
+    ) { uri: Uri? ->
+        val sourcePath = pendingExportPath
+        pendingExportPath = null
+
+        if (uri == null || sourcePath == null) {
+            return@rememberLauncherForActivityResult
+        }
+
+        val copied = runCatching {
+            context.contentResolver.openOutputStream(uri)?.use { output ->
+                File(sourcePath).inputStream().use { input ->
+                    input.copyTo(output)
+                }
+            } != null
+        }.getOrDefault(false)
+
+        Toast.makeText(
+            context,
+            context.getString(
+                if (copied) R.string.report_export_saved_success else R.string.report_export_failed
+            ),
+            Toast.LENGTH_SHORT
+        ).show()
+    }
 
     LazyColumn(
         modifier = Modifier
@@ -154,22 +193,40 @@ fun ReportScreen(viewModel: ReportViewModel) {
         }
 
         items(state.records.take(5)) { record ->
-            Card {
-                Column(modifier = Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) {
-                    Text(
-                        RecordFormatters.formatMeasuredAt(record),
-                        style = MaterialTheme.typography.bodySmall,
-                        maxLines = 2,
-                        overflow = TextOverflow.Ellipsis
+            val category = record.regionalCategory
+            Card(colors = CardDefaults.cardColors(containerColor = category.backgroundColor())) {
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(IntrinsicSize.Min)
+                ) {
+                    Box(
+                        modifier = Modifier
+                            .fillMaxHeight()
+                            .width(6.dp)
+                            .padding(vertical = 10.dp)
+                            .background(category.tintColor(), RoundedCornerShape(3.dp))
                     )
-                    Text("${record.systolic}/${record.diastolic}", maxLines = 1)
-                    summaryRow(stringResource(R.string.metric_heart_rate), record.heartRate.toString())
-                    Text(
-                        stringResource(record.status.labelResId()),
-                        style = MaterialTheme.typography.bodySmall,
-                        maxLines = 2,
-                        overflow = TextOverflow.Ellipsis
-                    )
+                    Column(
+                        modifier = Modifier.padding(start = 14.dp, top = 16.dp, end = 16.dp, bottom = 16.dp),
+                        verticalArrangement = Arrangement.spacedBy(4.dp)
+                    ) {
+                        Text(
+                            RecordFormatters.formatMeasuredAt(record),
+                            style = MaterialTheme.typography.bodySmall,
+                            maxLines = 2,
+                            overflow = TextOverflow.Ellipsis
+                        )
+                        Text("${record.systolic}/${record.diastolic}", maxLines = 1)
+                        summaryRow(stringResource(R.string.metric_heart_rate), record.heartRate.toString())
+                        Text(
+                            stringResource(category.labelResId()),
+                            style = MaterialTheme.typography.bodySmall,
+                            color = category.tintColor(),
+                            maxLines = 2,
+                            overflow = TextOverflow.Ellipsis
+                        )
+                    }
                 }
             }
         }
@@ -184,6 +241,9 @@ fun ReportScreen(viewModel: ReportViewModel) {
                             context.getString(R.string.report_export_failed),
                             Toast.LENGTH_SHORT
                         ).show()
+                    } else {
+                        pendingExportPath = exported
+                        createDocumentLauncher.launch(File(exported).name)
                     }
                 },
                 enabled = state.records.isNotEmpty(),
@@ -238,6 +298,13 @@ fun ReportScreen(viewModel: ReportViewModel) {
                         style = MaterialTheme.typography.bodyMedium,
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
                         maxLines = 1,
+                        overflow = TextOverflow.Ellipsis
+                    )
+                    Text(
+                        text = stringResource(R.string.report_export_saved_hint),
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        maxLines = 2,
                         overflow = TextOverflow.Ellipsis
                     )
                 }

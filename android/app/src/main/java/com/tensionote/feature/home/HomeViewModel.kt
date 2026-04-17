@@ -4,10 +4,11 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import com.tensionote.core.model.BloodPressureRecord
-import com.tensionote.core.model.BloodPressureStatus
+import com.tensionote.core.model.BloodPressureCategory
+import com.tensionote.core.model.RegionalBloodPressureEvaluator
+import com.tensionote.core.model.regionalCategory
 import com.tensionote.core.repository.AppGraph
 import com.tensionote.core.repository.BloodPressureRepository
-import com.tensionote.core.rules.BloodPressureStatusEvaluator
 import com.tensionote.core.rules.RecordInputValidator
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -19,14 +20,14 @@ data class HomeUiState(
     val diastolicInput: String = "",
     val heartRateInput: String = "",
     val trendRecords: List<BloodPressureRecord> = emptyList(),
-    val selectedStatus: BloodPressureStatus = BloodPressureStatus.NORMAL,
-    val draftStatus: BloodPressureStatus? = null,
+    val selectedCategory: BloodPressureCategory = BloodPressureCategory.NORMAL,
+    val draftCategory: BloodPressureCategory? = null,
     val validationMessageKey: String? = null
 )
 
 class HomeViewModel(
     private val repository: BloodPressureRepository = AppGraph.bloodPressureRepository,
-    private val evaluator: BloodPressureStatusEvaluator = BloodPressureStatusEvaluator(),
+    private val evaluator: RegionalBloodPressureEvaluator = RegionalBloodPressureEvaluator(),
     private val validator: RecordInputValidator = RecordInputValidator()
 ) : ViewModel() {
 
@@ -42,7 +43,7 @@ class HomeViewModel(
                 _uiState.update { state ->
                     state.copy(
                         trendRecords = trendRecords,
-                        selectedStatus = trendRecords.lastOrNull()?.status ?: BloodPressureStatus.NORMAL
+                        selectedCategory = trendRecords.lastOrNull()?.regionalCategory ?: BloodPressureCategory.NORMAL
                     )
                 }
             }
@@ -54,7 +55,7 @@ class HomeViewModel(
             systolicInput = value,
             validationMessageKey = null
         )
-        updated.copy(draftStatus = evaluateDraftStatus(updated.systolicInput, updated.diastolicInput))
+        updated.copy(draftCategory = evaluateDraftCategory(updated.systolicInput, updated.diastolicInput))
     }
 
     fun updateDiastolic(value: String) = _uiState.update { state ->
@@ -62,7 +63,7 @@ class HomeViewModel(
             diastolicInput = value,
             validationMessageKey = null
         )
-        updated.copy(draftStatus = evaluateDraftStatus(updated.systolicInput, updated.diastolicInput))
+        updated.copy(draftCategory = evaluateDraftCategory(updated.systolicInput, updated.diastolicInput))
     }
 
     fun updateHeartRate(value: String) = _uiState.update {
@@ -92,22 +93,22 @@ class HomeViewModel(
                 diastolicInput = "",
                 heartRateInput = "",
                 trendRecords = repository.fetchRecentTwoWeeks(),
-                selectedStatus = record.status,
-                draftStatus = null,
+                selectedCategory = record.regionalCategory,
+                draftCategory = null,
                 validationMessageKey = null
             )
         }
     }
 
     fun selectRecord(record: BloodPressureRecord) {
-        _uiState.update { it.copy(selectedStatus = record.status) }
+        _uiState.update { it.copy(selectedCategory = record.regionalCategory) }
     }
 
-    fun currentDraftStatus(): BloodPressureStatus {
-        return _uiState.value.draftStatus ?: BloodPressureStatus.NORMAL
+    fun currentDraftCategory(): BloodPressureCategory {
+        return _uiState.value.draftCategory ?: BloodPressureCategory.NORMAL
     }
 
-    private fun evaluateDraftStatus(systolicInput: String, diastolicInput: String): BloodPressureStatus? {
+    private fun evaluateDraftCategory(systolicInput: String, diastolicInput: String): BloodPressureCategory? {
         val systolic = systolicInput.toIntOrNull()
         val diastolic = diastolicInput.toIntOrNull()
         return if (systolic == null || diastolic == null) {

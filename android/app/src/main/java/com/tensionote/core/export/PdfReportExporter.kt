@@ -8,7 +8,10 @@ import com.tensionote.core.model.BloodPressureRecord
 import com.tensionote.core.model.RecordFormatters
 import com.tensionote.core.model.ReportSummary
 import com.tensionote.core.model.labelResId
+import com.tensionote.core.model.regionalCategory
 import java.io.File
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
 class PdfReportExporter(
     private val context: Context
@@ -34,7 +37,7 @@ class PdfReportExporter(
         var y = 190f
         records.take(12).forEach { record ->
             canvas.drawText(
-                "${RecordFormatters.formatMeasuredAt(record)}  ${record.systolic}/${record.diastolic}  ${record.heartRate}  ${context.getString(record.status.labelResId())}",
+                "${RecordFormatters.formatMeasuredAt(record)}  ${record.systolic}/${record.diastolic}  ${record.heartRate}  ${context.getString(record.regionalCategory.labelResId())}",
                 32f,
                 y,
                 bodyPaint
@@ -45,7 +48,8 @@ class PdfReportExporter(
         document.finishPage(page)
 
         return try {
-            val file = File(context.cacheDir, "tensionote-report-$days.pdf")
+            val timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd-HHmm"))
+            val file = File(context.cacheDir, "Tensionote-Report-${days}-days-$timestamp.pdf")
             file.outputStream().use { output ->
                 document.writeTo(output)
             }

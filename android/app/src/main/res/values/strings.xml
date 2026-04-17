@@ -39,6 +39,7 @@
     <string name="trend_summary_counts">In the selected trend, systolic was high %1$d times and diastolic was high %2$d times.</string>
     <string name="trend_chart_axis_pressure">Pressure (mmHg)</string>
     <string name="trend_chart_axis_date">Date</string>
+    <string name="trend_chart_legend_thresholds">Regional hypertension thresholds: systolic %1$d, diastolic %2$d.</string>
     <string name="trend_chart_legend_systolic">Systolic line</string>
     <string name="trend_chart_legend_diastolic">Diastolic line</string>
     <string name="trend_chart_range_systolic_normal">Systolic common range: 90-120</string>
@@ -76,6 +77,8 @@
     <string name="report_share_chooser_title">Share report</string>
     <string name="report_share_email">Share by Email</string>
     <string name="report_export_result_prefix">Generated file:</string>
+    <string name="report_export_saved_hint">The system save dialog opens after export so you can save the PDF to Files or another location.</string>
+    <string name="report_export_saved_success">PDF saved successfully.</string>
     <string name="report_export_failed">Unable to generate the PDF report.</string>
     <string name="report_share_failed">No app available to share the report.</string>
     <string name="report_email_subject_format">Tensionote Blood Pressure Report (%1$d Days)</string>
@@ -107,14 +110,24 @@
     <string name="validation_enter_valid_numbers">Please enter valid numbers.</string>
     <string name="validation_out_of_range">Please enter values within a valid range.</string>
 
+    <string name="blood_pressure_category_normal">Normal</string>
+    <string name="blood_pressure_category_high_normal">High-normal</string>
+    <string name="blood_pressure_category_elevated">Elevated</string>
+    <string name="blood_pressure_category_stage_1_hypertension">Stage 1 Hypertension</string>
+    <string name="blood_pressure_category_stage_2_hypertension">Stage 2 Hypertension</string>
+    <string name="blood_pressure_category_hypertension">Hypertension</string>
+    <string name="blood_pressure_category_grade_1_hypertension">Grade 1 Hypertension</string>
+    <string name="blood_pressure_category_grade_2_hypertension">Grade 2 Hypertension</string>
+    <string name="blood_pressure_category_grade_3_hypertension">Grade 3 Hypertension</string>
+    <string name="blood_pressure_category_severe_hypertension">Severe Hypertension</string>
+    <string name="blood_pressure_category_hypertensive_crisis">Hypertensive Crisis</string>
+
     <string name="blood_pressure_status_normal">This reading is within the common normal range.</string>
     <string name="blood_pressure_status_systolic_high">Systolic pressure is high.</string>
     <string name="blood_pressure_status_diastolic_high">Diastolic pressure is high.</string>
     <string name="blood_pressure_status_both_high">Systolic and diastolic pressure are high.</string>
     <string name="blood_pressure_status_variability">Blood pressure has been fluctuating noticeably.</string>
 </resources>
-
-
 
 
 

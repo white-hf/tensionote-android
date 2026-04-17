@@ -163,7 +163,7 @@ private fun TensionoteRoot() {
                     }
                 )
                 RootTab.DETAIL_ENTRY -> DetailedRecordScreen(
-                    initialStatus = homeViewModel.currentDraftStatus(),
+                    initialCategory = homeViewModel.currentDraftCategory(),
                     onBack = {
                         selectedRecordId = null
                         selectedDocument = null

@@ -2,6 +2,7 @@ package com.tensionote.core.export
 
 import android.content.ActivityNotFoundException
 import android.content.Context
+import android.content.ClipData
 import android.content.Intent
 import com.tensionote.R
 import androidx.core.content.FileProvider
@@ -20,35 +21,12 @@ object ReportShareHelper {
             file
         )
 
-        val emailIntent = Intent(Intent.ACTION_SENDTO).apply {
-            data = android.net.Uri.parse("mailto:")
-            putExtra(Intent.EXTRA_SUBJECT, subject)
-            putExtra(Intent.EXTRA_TEXT, body)
-        }
-
-        val emailResolved = emailIntent.resolveActivity(context.packageManager)
-        if (emailResolved != null) {
-            val sendIntent = Intent(Intent.ACTION_SEND).apply {
-                type = "application/pdf"
-                putExtra(Intent.EXTRA_EMAIL, arrayOf<String>())
-                putExtra(Intent.EXTRA_SUBJECT, subject)
-                putExtra(Intent.EXTRA_TEXT, body)
-                putExtra(Intent.EXTRA_STREAM, uri)
-                setPackage(emailResolved.packageName)
-                addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
-            }
-            try {
-                context.startActivity(sendIntent)
-                return true
-            } catch (_: ActivityNotFoundException) {
-            }
-        }
-
         val fallbackIntent = Intent(Intent.ACTION_SEND).apply {
             type = "application/pdf"
             putExtra(Intent.EXTRA_STREAM, uri)
             putExtra(Intent.EXTRA_SUBJECT, subject)
             putExtra(Intent.EXTRA_TEXT, body)
+            clipData = ClipData.newRawUri(file.name, uri)
             addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
         }
 
