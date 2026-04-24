@@ -40,6 +40,7 @@
     <string name="trend_chart_axis_pressure">压力（mmHg）</string>
     <string name="trend_chart_axis_date">日期</string>
     <string name="trend_chart_legend_thresholds">当前区域高血压阈值：收缩压 %1$d，舒张压 %2$d。</string>
+    <string name="trend_chart_legend_compact_rule">红色阈值线表示收缩压阈值，高于 %1$d 视为偏高；橙色阈值线表示舒张压阈值，高于 %2$d 视为偏高。</string>
     <string name="trend_chart_legend_systolic">收缩压曲线</string>
     <string name="trend_chart_legend_diastolic">舒张压曲线</string>
     <string name="trend_chart_range_systolic_normal">收缩压常见范围：90-120</string>
@@ -128,8 +129,6 @@
     <string name="blood_pressure_status_both_high">收缩压和舒张压偏高。</string>
     <string name="blood_pressure_status_variability">最近血压波动较明显。</string>
 </resources>
-
-
 
 
 

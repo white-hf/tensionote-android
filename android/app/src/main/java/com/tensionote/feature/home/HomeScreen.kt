@@ -164,7 +164,7 @@ fun HomeScreen(
                         )
                         Text(
                             stringResource(
-                                R.string.trend_chart_legend_thresholds,
+                                R.string.trend_chart_legend_compact_rule,
                                 evaluator.standard.hypertensionSystolicThreshold,
                                 evaluator.standard.hypertensionDiastolicThreshold
                             ),

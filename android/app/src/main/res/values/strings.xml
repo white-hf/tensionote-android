@@ -40,6 +40,7 @@
     <string name="trend_chart_axis_pressure">Pressure (mmHg)</string>
     <string name="trend_chart_axis_date">Date</string>
     <string name="trend_chart_legend_thresholds">Regional hypertension thresholds: systolic %1$d, diastolic %2$d.</string>
+    <string name="trend_chart_legend_compact_rule">The red threshold line marks the systolic threshold. Values above %1$d are considered high; the orange threshold line marks the diastolic threshold. Values above %2$d are considered high.</string>
     <string name="trend_chart_legend_systolic">Systolic line</string>
     <string name="trend_chart_legend_diastolic">Diastolic line</string>
     <string name="trend_chart_range_systolic_normal">Systolic common range: 90-120</string>
@@ -128,6 +129,4 @@
     <string name="blood_pressure_status_both_high">Systolic and diastolic pressure are high.</string>
     <string name="blood_pressure_status_variability">Blood pressure has been fluctuating noticeably.</string>
 </resources>
-
-
 

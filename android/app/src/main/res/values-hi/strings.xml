@@ -40,6 +40,7 @@
     <string name="trend_chart_axis_pressure">दबाव (mmHg)</string>
     <string name="trend_chart_axis_date">तारीख</string>
     <string name="trend_chart_legend_thresholds">वर्तमान क्षेत्रीय उच्च रक्तचाप सीमा: सिस्टोलिक %1$d, डायस्टोलिक %2$d।</string>
+    <string name="trend_chart_legend_compact_rule">लाल सीमा रेखा सिस्टोलिक सीमा दिखाती है। %1$d से ऊपर मान उच्च माना जाता है; नारंगी सीमा रेखा डायस्टोलिक सीमा दिखाती है। %2$d से ऊपर मान उच्च माना जाता है।</string>
     <string name="trend_chart_legend_systolic">सिस्टोलिक रेखा</string>
     <string name="trend_chart_legend_diastolic">डायस्टोलिक रेखा</string>
     <string name="trend_chart_range_systolic_normal">सिस्टोलिक सामान्य सीमा: 90-120</string>
@@ -128,8 +129,6 @@
     <string name="blood_pressure_status_both_high">सिस्टोलिक और डायस्टोलिक दबाव ऊँचे हैं।</string>
     <string name="blood_pressure_status_variability">रक्तचाप में हाल में स्पष्ट उतार-चढ़ाव रहा है।</string>
 </resources>
-
-
 
 
 
