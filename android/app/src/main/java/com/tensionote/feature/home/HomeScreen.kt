@@ -1,22 +1,34 @@
 package com.tensionote.feature.home
 
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Check
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.hapticfeedback.HapticFeedbackType
 import androidx.compose.ui.platform.LocalFocusManager
+import androidx.compose.ui.platform.LocalHapticFeedback
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
@@ -37,6 +49,7 @@ fun HomeScreen(
     val state by viewModel.uiState.collectAsState()
     val keyboardController = LocalSoftwareKeyboardController.current
     val focusManager = LocalFocusManager.current
+    val haptic = LocalHapticFeedback.current
     val evaluator = remember { RegionalBloodPressureEvaluator() }
     val displayCategory = state.draftCategory ?: state.selectedCategory
     val systolicHighCount = state.trendRecords.count {
@@ -44,6 +57,12 @@ fun HomeScreen(
     }
     val diastolicHighCount = state.trendRecords.count {
         evaluator.standard.isDiastolicAboveHypertensionThreshold(it.diastolic)
+    }
+
+    LaunchedEffect(state.showSaveSuccess) {
+        if (state.showSaveSuccess) {
+            haptic.performHapticFeedback(HapticFeedbackType.LongPress)
+        }
     }
 
     LazyColumn(
@@ -119,9 +138,47 @@ fun HomeScreen(
                             focusManager.clearFocus()
                             viewModel.saveQuickRecord()
                         },
-                        modifier = Modifier.fillMaxWidth()
+                        modifier = Modifier.fillMaxWidth(),
+                        colors = if (state.showSaveSuccess) {
+                            ButtonDefaults.buttonColors(containerColor = Color(0xFF4CAF50))
+                        } else {
+                            ButtonDefaults.buttonColors()
+                        }
                     ) {
-                        Text(stringResource(R.string.common_save_now))
+                        Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                            if (state.showSaveSuccess) {
+                                Icon(Icons.Default.Check, contentDescription = null)
+                                Text(stringResource(R.string.common_save_success))
+                            } else {
+                                Text(stringResource(R.string.common_save_now))
+                            }
+                        }
+                    }
+
+                    AnimatedVisibility(
+                        visible = state.feedbackMessageKey != null,
+                        enter = fadeIn(),
+                        exit = fadeOut()
+                    ) {
+                        state.feedbackMessageKey?.let { key ->
+                            val resId = remember(key) {
+                                when (key) {
+                                    "feedback_first_record" -> R.string.feedback_first_record
+                                    "feedback_normal" -> R.string.feedback_normal
+                                    "feedback_stable_high" -> R.string.feedback_stable_high
+                                    "feedback_improving" -> R.string.feedback_improving
+                                    "feedback_sudden_high" -> R.string.feedback_sudden_high
+                                    else -> 0
+                                }
+                            }
+                            if (resId != 0) {
+                                Text(
+                                    stringResource(resId),
+                                    style = MaterialTheme.typography.bodyMedium,
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                                )
+                            }
+                        }
                     }
 
                     state.validationMessageKey?.let {

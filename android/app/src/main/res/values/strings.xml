@@ -128,5 +128,11 @@
     <string name="blood_pressure_status_diastolic_high">Diastolic pressure is high.</string>
     <string name="blood_pressure_status_both_high">Systolic and diastolic pressure are high.</string>
     <string name="blood_pressure_status_variability">Blood pressure has been fluctuating noticeably.</string>
+    <string name="common_save_success">Saved successfully</string>
+    <string name="feedback_first_record">First record saved! Keep recording to see your health trend.</string>
+    <string name="feedback_normal">Perfect! Keep up your healthy lifestyle.</string>
+    <string name="feedback_stable_high">Your readings are stable. Consistent recording is key to management.</string>
+    <string name="feedback_improving">Great! This reading is lower than your recent average.</string>
+    <string name="feedback_sudden_high">This is higher than your usual levels. Try to rest and re-measure.</string>
 </resources>
 

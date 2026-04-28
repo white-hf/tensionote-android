@@ -10,6 +10,7 @@ import com.tensionote.core.model.regionalCategory
 import com.tensionote.core.repository.AppGraph
 import com.tensionote.core.repository.BloodPressureRepository
 import com.tensionote.core.rules.RecordInputValidator
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
@@ -22,7 +23,9 @@ data class HomeUiState(
     val trendRecords: List<BloodPressureRecord> = emptyList(),
     val selectedCategory: BloodPressureCategory = BloodPressureCategory.NORMAL,
     val draftCategory: BloodPressureCategory? = null,
-    val validationMessageKey: String? = null
+    val validationMessageKey: String? = null,
+    val showSaveSuccess: Boolean = false,
+    val feedbackMessageKey: String? = null
 )
 
 class HomeViewModel(
@@ -86,7 +89,10 @@ class HomeViewModel(
             return
         }
 
+        val baseline = state.trendRecords
         val record = repository.saveQuickRecord(systolic, diastolic, heartRate)
+        val feedbackKey = generateFeedback(record, baseline)
+
         _uiState.update {
             it.copy(
                 systolicInput = "",
@@ -95,9 +101,40 @@ class HomeViewModel(
                 trendRecords = repository.fetchRecentTwoWeeks(),
                 selectedCategory = record.regionalCategory,
                 draftCategory = null,
-                validationMessageKey = null
+                validationMessageKey = null,
+                showSaveSuccess = true,
+                feedbackMessageKey = feedbackKey
             )
         }
+
+        viewModelScope.launch {
+            delay(4000)
+            _uiState.update {
+                it.copy(showSaveSuccess = false, feedbackMessageKey = null)
+            }
+        }
+    }
+
+    private fun generateFeedback(record: BloodPressureRecord, baseline: List<BloodPressureRecord>): String {
+        if (baseline.isEmpty()) {
+            return "feedback_first_record"
+        }
+        
+        val avgSystolic = baseline.map { it.systolic.toDouble() }.average()
+        
+        if (record.systolic.toDouble() > avgSystolic + 12) {
+            return "feedback_sudden_high"
+        }
+        
+        if (record.systolic.toDouble() < avgSystolic - 8) {
+            return "feedback_improving"
+        }
+        
+        if (record.regionalCategory == BloodPressureCategory.NORMAL) {
+            return "feedback_normal"
+        }
+        
+        return "feedback_stable_high"
     }
 
     fun selectRecord(record: BloodPressureRecord) {
